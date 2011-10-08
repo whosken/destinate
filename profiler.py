@@ -29,16 +29,23 @@ class TfIdfProfiler(object):
         for name, profile in profiles.iteritems():
             limit = int(len(profile)/sparse_factor)
             tf_idf_tuples = [(term, score * log(profiles_count / corpus[term])) for term, score in profile.iteritems()]
-            new_profiles[name] = Counter(dict(tf_idf_tuples)).most_common()[:limit]
+            new_profiles[name] = dict(Counter(dict(tf_idf_tuples)).most_common()[:limit])
         return new_profiles
         
     def _calculate_tf(self, doc_tuples):
         corpus = Counter()
         profiles = {}
         
+        def yield_words(body):
+            for word in body.lower().split():
+                try:
+                    float(word)
+                except ValueError:
+                    yield word
+        
         logging.info('Starting TF profiling')
         for name, intro, body in doc_tuples:
-            bag = Counter(body.split())
+            bag = Counter(yield_words(body))
             profiles[name] = bag
             corpus.update(bag.iterkeys())
         return profiles, corpus

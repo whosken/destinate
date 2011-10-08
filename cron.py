@@ -11,6 +11,7 @@ def run(rescrape=False, doc_list_name=None):
         logging.info('Storing doc <{0}>'.format(doc_tuple[0]))
         response = store.put_place(doc_tuple)
         logging.info('Recieved resposne <{0}>'.format(response))
+    store.compact()
 
 def scrape(rescrape=True, doc_list_name=None):
     if not rescrape: return None
@@ -28,13 +29,13 @@ def encode(doc_tuples=None):
     
 class CronTests(unittest.TestCase):
     def test_run(self):
-        raise NotImplementedError
+        run()
 
     def test_scape(self):
         raise NotImplementedError
         
     def test_encode(self):
-        raise NotImplementedError
+        encode()
     
     
 def suite():

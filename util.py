@@ -2,11 +2,6 @@ import os
 import logging, unittest
 import yaml
 
-env_configs = {
-        'test':'test.yaml',
-        'prod':'config.yaml',
-    }
-
 config = {}
 def load_yaml(path):
     logging.info('Reading yaml from <{0}>'.format(path))
@@ -14,10 +9,10 @@ def load_yaml(path):
         raw_config = file.read()
     return yaml.load(raw_config)
 
-def load_config(env='test'):
+def load_config():
     global config
     if not config:
-        path = os.path.join(os.getcwd(), env_configs[env])
+        path = os.path.join(os.getcwd(), 'config.yaml')
         config = load_yaml(path)
     return config
     

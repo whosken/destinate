@@ -53,7 +53,7 @@ class BaseStorage(object):
         }
     
     def _handle_response(self, response, object_id, data=None):
-        if response.status_code in self.handle_response:
+        if str(response.status_code) in self.handle_response:
             return self.handle_response[str(response.status_code)](self, object_id, data)
         return response.content
     
@@ -76,21 +76,32 @@ class BaseStorage(object):
     
     def _get_view(self, design_name, view_name, view_params):
         view_id = '/'.join(('_design', design_name, '_view', view_name))
-        url = '/'.join((self.server, view_id))
+        url = '/'.join((self.server, self.db_name, view_id))
         if view_params:
             url += '?' + '&'.join('{0}={1}'.format(key,value) for key,value in view_params.items())
         response = requests.get(url, auth=self.key)
         return response.content
         
+    def _yield_view_response(self, content):
+        for row in json.loads(content).get('rows',[]):
+            if 'value' in row:
+                yield row['value']
+        
     def get_all_ids(self):
         result = self.get_object('_all_docs')
         for row in json.loads(result).get('rows',[]):
+            if row['id'][0] == '_': continue
             yield row['id']
         
     def get_all_objects(self):
-        result = self.get_object('_all_docs')
-        for row in json.loads(result).get('rows',[]):
-            yield self.get_object(row['id'])
+        for doc_id in self.get_all_ids():
+            yield self.get_object(doc_id)
+            
+    def compact(self):
+        object_id = '_compact'
+        url = self._get_object_url(object_id)
+        response = requests.post(url, auth=self.key, headers={'Content-Type': 'application/json'})
+        return self._handle_response(response, object_id)
 
 
 class PlaceStorage(BaseStorage):
@@ -117,6 +128,23 @@ class PlaceStorage(BaseStorage):
     def get_places(self, place_ids):
         for place_id in place_ids:
             yield self.get_place(place_id)
+    
+    def get_places_by_word(self, word):
+        response = self._get_view('find_docs', 'by_keyword', {'key':json.dumps(word)})
+        def get_place_ids():
+            for place_ids in self._yield_view_response(response):
+                for place_id in place_ids:
+                    yield place_id
+                    
+        return self.get_places(get_place_ids())
+    
+    def get_places_by_words(self, words):
+        places = {}
+        for word in words:
+            for place in self.get_places_by_word(word):
+                if place.name not in places:
+                    places[place.name] = place
+        return places.itervalues()
     
     def json_to_place(self, place_json):
         place_dict = json.loads(place_json)
