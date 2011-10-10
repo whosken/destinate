@@ -44,9 +44,6 @@ class WikiTravelRequestor(object):
         intro = body[:200 if len(body) >= 200 else len(body)]
         return name, intro, body
     
-
-import sys
-requests.settings.verbose = sys.stderr # TODO: point to logger stream
         
 class WikiTravelRequestorTests(unittest.TestCase):
     def _make_one(self, *args, **kw):

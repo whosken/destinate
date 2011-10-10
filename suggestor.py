@@ -18,7 +18,7 @@ def suggest(target_name, count=20):
         if len(response) > 0:
             name,info,body = response[0]
             target_profile = Counter(body.split())
-            storage.put_object([name, info, body, target_profile])
+            storage.put_object(name, [name, info, body, target_profile])
         else: # target_text is not a place name, use binary place search
             target_profile = Counter(target_name.lower().split())
             places = storage.get_places_by_words(target_profile.iterkeys())
