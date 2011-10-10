@@ -14,12 +14,13 @@ def suggest(target_name, count=20):
     if target_name in doc_ids:
         target_profile = storage.get_place(target_name).profile
     else:
-        response = list(search_queries([target_name]))
-        if len(response) > 0:
-            name,info,body = response[0]
+        response = search_queries([target_name])
+        try:
+            name,info,body = response.next()
             target_profile = Counter(body.split())
             storage.put_object(name, [name, info, body, target_profile])
-        else: # target_text is not a place name, use binary place search
+        except StopIteration:
+            logging.warning('<{0}> is not a place name, use binary place search'.format(target_name))
             target_profile = Counter(target_name.lower().split())
             places = storage.get_places_by_words(target_profile.iterkeys())
     if not places: places = storage.get_places(doc_ids)

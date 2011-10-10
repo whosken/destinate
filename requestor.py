@@ -41,9 +41,12 @@ class WikiTravelRequestor(object):
             logging.error('Received error <{0}> while parsing WikiTravel'.format(repr(e)))
             return
         body = clean_string(body)
-        intro = body[:200 if len(body) >= 200 else len(body)]
+        intro = body[:500 if len(body) >= 500 else len(body)]
         return name, intro, body
-    
+        
+import sys
+requests.settings.verbose = sys.stderr # TODO: point to logger stream
+
         
 class WikiTravelRequestorTests(unittest.TestCase):
     def _make_one(self, *args, **kw):

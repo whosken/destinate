@@ -156,6 +156,9 @@ class PlaceStorage(BaseStorage):
 
 class TopicStorage(BaseStorage):
     db_name = 'topic_store'
+
+import sys
+requests.settings.verbose = sys.stderr # TODO: point to logger stream
     
     
 class BaseStorageTests(unittest.TestCase):
