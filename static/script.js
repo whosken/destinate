@@ -2,8 +2,8 @@ var getInfoLink = function(name){
         return 'http://wikitravel.org/en/'+name;
     }
     
-var getFlightsLink = function(name){
-        return 'http://skyscanner.net/as/ashx?t='+name;
+var getTravelLink = function(name){
+        return 'http://skyscanner.net/'; // TODO: proper link
     }
 
 var addToResults = function(place){
@@ -13,9 +13,9 @@ var addToResults = function(place){
         html:'<h3>'+place.name+'</h3>'
     });
     
-    var $info = $('<p>'+place.info+'</p>');
+    var $info = $('<p>'+place.info+' </p>');
     $('<a/>',{
-        html:' ...',
+        html:'...',
         href:getInfoLink(place.name),
         target:'_blank'
     }).appendTo($info);
@@ -23,7 +23,7 @@ var addToResults = function(place){
     
     $('<a/>',{
         html:'Get Me There!',
-        href:getFlightsLink(place.name),
+        href:getTravelLink(place.name),
         target:'_blank'
     }).appendTo($place);
     $('#responseContainer').append($place);
