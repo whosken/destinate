@@ -1,11 +1,15 @@
 var getInfoLink = function(name){
-        return 'http://wikitravel.org/en/'+name;
-    }
+    return 'http://wikitravel.org/en/'+name;
+};
     
 var getTravelLink = function(name){
-        return 'http://skyscanner.net/'; // TODO: proper link
-    }
+    return 'http://skyscanner.net/'; // TODO: proper link
+};
 
+var cleanResults = function(){
+    $('#responseContainer').empty();
+};
+    
 var addToResults = function(place){
     var $place = $('<div/>',{
         class:'place',
@@ -59,7 +63,8 @@ var SearchRequest = {
         });
     },
     succeed:function(response){
-        for(i in response[0]){
+        cleanResults();
+        for(var i in response[0]){
             InfoRequest.makeRequest(response[0][i]);
         }
         console.log('Success!');
