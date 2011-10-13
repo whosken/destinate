@@ -3,7 +3,7 @@ import os
 import json
 import requests
 from collections import namedtuple
-from util import load_config
+from util import load_config, load_db_config
 
 Place = namedtuple('Place', 'name, intro, body, profile')
 Topic = namedtuple('Topic', 'profile, members')
@@ -15,9 +15,14 @@ class CouchStorage(object):
 
     def __init__(self):
         try:
-            config = load_config()['couchdb']
+            config = load_config().get('couchdb',load_db_config('couchdb'))
+            
             self.server = config['server']
-            self.key = (config.get('username',''), config.get('password',''))
+            if 'username' in config and 'password' in config:
+                self.key = (config['username'], config['password'])
+            else:
+                self.key = None
+            
             logging.info('Database <{0}> connection opened'.format(self.db_name))
         except AttributeError, e:
             if self.__class__ is BaseStorage:
