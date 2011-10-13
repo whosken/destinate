@@ -13,7 +13,7 @@ def load_db_config(config):
     if 'couchdb' not in config:
         server = os.environ.get('CLOUDANT_URL',None)
         config['couchdb'] = {
-                'server': 'https//'+server if sever else 'http://127.0.0.1:5984',
+                'server': 'https//'+server if server else 'http://127.0.0.1:5984',
                 'username': '',
                 'password': '',
             }
