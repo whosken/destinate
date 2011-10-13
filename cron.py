@@ -6,42 +6,27 @@ import util
 
 def run(rescrape=False, doc_list_name=None):
     store = Storage()
-    docs = scrape(rescrape, doc_list_name)
-    for doc_tuple in encode(docs):
-        logging.info('Storing doc <{0}>'.format(doc_tuple[0]))
-        response = store.put_place(doc_tuple)
-        logging.info('Recieved resposne <{0}>'.format(response))
+    docs = scrape(store, rescrape, doc_list_name)
+    doc_tuples = profile(docs)
+    list(store.put_places(doc_tuples))
     store.compact()
-
-def scrape(rescrape=True, doc_list_name=None):
-    if not rescrape: return None
-    doc_ids = list(Storage().get_all_ids()) if not doc_list_name else util.iter_txt(doc_list_name)
-    return search_queries(doc_ids)
     
-def encode(doc_tuples=None):
-    if not doc_tuples:
-        def unpack_Place():
-            for name, intro, body, profile in Storage().get_all_places():
-                yield name, intro, body
-        doc_tuples = unpack_Place()
-    return profile(doc_tuples)
+def scrape(store, rescrape, doc_list_name):
+    doc_ids = store.get_all_ids() if not doc_list_name else util.iter_txt(doc_list_name)
     
-    
-class CronTests(unittest.TestCase):
-    def test_run(self):
-        run()
-
-    def test_scape(self):
-        raise NotImplementedError
+    if rescrape:
+        return search_queries(doc_ids)
         
-    def test_encode(self):
-        encode()
+    def get_places():
+        for name, intro, body, _ in store.get_places(doc_ids):
+            yield name,intro,body
+    return get_places()
     
     
-def suite():
-    suite = unittest.TestSuite()
-    suite.addTest(unittest.makeSuite(CronTests))
-    return suite
-        
 if __name__ == '__main__':
-    unittest.TextTestRunner(verbosity=2).run(suite())
+    import argparse
+    parser = argparse.ArgumentParser(description='Parser for Cron')
+    parser.add_argument('--rescrape', default=False, dest='rescrape', action='store_true', help='Scrape from Data Source')
+    parser.add_argument('place_list', default=None, nargs='?', type=str, help='List of Places')
+    args = parser.parse_args()
+    run(args.rescrape, args.place_list)
