@@ -1,4 +1,4 @@
-import os
+import os, re
 import logging, unittest
 import yaml
 
@@ -11,12 +11,18 @@ def load_yaml(path):
 
 def load_db_config(db_type):
     if db_type == 'couchdb':
-        server = os.environ.get('CLOUDANT_URL',None)
-        return {
-                'server': server if server else 'http://127.0.0.1:5984',
-                'username': '',
-                'password': '',
+        env_url = os.environ.get('CLOUDANT_URL',None)
+        logging.debug('loaded cloudant url is <{0}>'.format(env_url))
+        if not env_url: return {'server':'http://127.0.0.1:5984'}
+        
+        parsed = re.search(r'https://(.*):(.*)@(.*)', env_url)
+        config = {
+                'server': parsed.group(3),
+                'username': parsed.group(1),
+                'password': parsed.group(2)
             }
+        logging.debug('parsed cloudant config is <{0}>'.format(config))
+        return config
     
 def load_config():
     global config
