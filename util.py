@@ -12,7 +12,7 @@ def load_yaml(path):
 def load_db_config(db_type):
     if db_type == 'couchdb':
         server = os.environ.get('CLOUDANT_URL',None)
-        return = {
+        return {
                 'server': server if server else 'http://127.0.0.1:5984',
                 'username': '',
                 'password': '',
