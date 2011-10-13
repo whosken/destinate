@@ -6,14 +6,23 @@ config = {}
 def load_yaml(path):
     logging.info('Reading yaml from <{0}>'.format(path))
     with open(path) as file:
-        raw_config = file.read()
-    return yaml.load(raw_config)
+        raw_yaml = file.read()
+    return yaml.load(raw_yaml)
 
+def load_db_config(config):
+    if 'couchdb' not in config:
+        config['couchdb'] = {
+                'server': os.environ.get('CLOUDANT_URL','http://127.0.0.1:5984'),
+                'username': '',
+                'password': '',
+            }
+    
 def load_config():
     global config
     if not config:
         path = os.path.join(os.getcwd(), 'config.yaml')
         config = load_yaml(path)
+        load_db_config(config)
     return config
     
 def iter_txt(file_name):

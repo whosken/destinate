@@ -8,16 +8,16 @@ from util import load_config
 Place = namedtuple('Place', 'name, intro, body, profile')
 Topic = namedtuple('Topic', 'profile, members')
 
-class BaseStorage(object):
+class CouchStorage(object):
     """
     An abstract class for CouchDb-based database access
     """
 
     def __init__(self):
         try:
-            config = load_config()[self.db_name]
+            config = load_config()['couchdb']
             self.server = config['server']
-            self.key = (config['username'], config['password'])
+            self.key = (config.get('username',''), config.get('password',''))
             logging.info('Database <{0}> connection opened'.format(self.db_name))
         except AttributeError, e:
             if self.__class__ is BaseStorage:
@@ -53,6 +53,7 @@ class BaseStorage(object):
         }
     
     def _handle_response(self, response, object_id, data=None):
+        logging.info('Recieved status code <{0}>'.format(response.status_code))
         if str(response.status_code) in self.handle_response:
             return self.handle_response[str(response.status_code)](self, object_id, data)
         return response.content
@@ -104,7 +105,7 @@ class BaseStorage(object):
         return self._handle_response(response, object_id)
 
 
-class PlaceStorage(BaseStorage):
+class PlaceStorage(CouchStorage):
     db_name = 'place_store'
     
     def put_place(self, place):
@@ -154,16 +155,14 @@ class PlaceStorage(BaseStorage):
             body=place_dict['body'],
             profile=place_dict['profile'])
 
-class TopicStorage(BaseStorage):
-    db_name = 'topic_store'
-
+            
 import sys
 requests.settings.verbose = sys.stderr # TODO: point to logger stream
     
     
-class BaseStorageTests(unittest.TestCase):
+class CouchStorageTests(unittest.TestCase):
     def _make_one(self, *args, **kw):
-        return BaseStorage(*args, **kw)
+        return CouchStorage(*args, **kw)
         
     def setUp(self):
         class TestRequests(object):
@@ -239,7 +238,7 @@ class BaseStorageTests(unittest.TestCase):
     
 def suite():
     suite = unittest.TestSuite()
-    suite.addTest(unittest.makeSuite(BaseStorageTests))
+    suite.addTest(unittest.makeSuite(CouchStorageTests))
     return suite
     
 if __name__ == '__main__':
