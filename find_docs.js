@@ -1,4 +1,16 @@
+var map = function(doc) {
+  if (doc.profile)
+    for (var word in doc.profile)
+      emit(word, [doc._id]);
+};
 
-<!-- saved from url=(0052)http://127.0.0.1:5984/place_store/_design/find_docs/ -->
-<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></head><body><pre style="word-wrap: break-word; white-space: pre-wrap;">{"_id":"_design/find_docs","_rev":"4-e2ec5bd2b3b63b3273d42f4b7d4c4c08","language":"javascript","views":{"by_keyword":{"map":"function(doc) {\n  if (doc.profile)\n    for (var word in doc.profile)\n      emit(word, [doc._id]);\n}","reduce":"function(keys,values,rereduce) {\n  var result = values[0];\n  for (var i in values)\n    var value = values[i];\n    for (var j in value)\n      var name = value[j];\n      if (result.indexOf(name) &lt; 0)\n        result.push(name);\n  return result;\n}"}}}
-</pre></body></html>
+var reduce = function(keys,values,rereduce) {
+  var result = values[0];
+  for (var i in values)
+    var value = values[i];
+    for (var j in value)
+      var name = value[j];
+      if (result.indexOf(name) < 0)
+        result.push(name);
+  return result;
+};
