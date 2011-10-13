@@ -17,7 +17,7 @@ def load_db_config(db_type):
         
         parsed = re.search(r'https://(.*):(.*)@(.*)', env_url)
         config = {
-                'server': parsed.group(3),
+                'server': 'https://'+parsed.group(3),
                 'username': parsed.group(1),
                 'password': parsed.group(2)
             }
@@ -29,7 +29,7 @@ def load_config():
     if not config:
         path = os.path.join(os.getcwd(), 'config.yaml')
         config = load_yaml(path)
-        load_db_config('couchdb')
+        #load_db_config('couchdb')
     return config
     
 def iter_txt(file_name):
