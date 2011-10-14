@@ -42,7 +42,7 @@ class CouchStorage(object):
         return '/'.join((self.server, self.db_name, object_id))
         
     def _handle_bad_request(self, object_id, data):
-        logging.error('Unable to store object <{0}> with data <{1}>'.format(object_id, repr(data)))
+        logging.error('Unable to store object <{0}>'.format(object_id))
     
     def _handle_not_found(self, object_id, data):
         logging.error('Unable to get object <{0}>'.format(object_id))
@@ -58,7 +58,6 @@ class CouchStorage(object):
         }
     
     def _handle_response(self, response, object_id, data=None):
-        response.raise_for_status()
         logging.info('Recieved status code <{0}>'.format(response.status_code))
         if str(response.status_code) in self.handle_response:
             return self.handle_response[str(response.status_code)](self, object_id, data)
