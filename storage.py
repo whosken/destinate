@@ -52,12 +52,13 @@ class CouchStorage(object):
         return self.put_object(object_id, data, revision = revision)
     
     handle_response = {
-            '400': _handle_bad_request,
-            '404': _handle_not_found,
-            '409': _handle_conflict,
+            requests.codes.bad_request: _handle_bad_request,
+            requests.codes.not_found: _handle_not_found,
+            requests.codes.conflict: _handle_conflict,
         }
     
     def _handle_response(self, response, object_id, data=None):
+        response.raise_for_status()
         logging.info('Recieved status code <{0}>'.format(response.status_code))
         if str(response.status_code) in self.handle_response:
             return self.handle_response[str(response.status_code)](self, object_id, data)
@@ -175,7 +176,7 @@ class CouchStorageTests(unittest.TestCase):
                 return namedtuple('Response', 'content, status_code')(content=(url,auth), status_code=200)
                 
             def put(self, url, auth=None, data=None):
-                return namedtuple('Response', 'content, status_code')(content=(url,auth,data), status_code=201)
+                return namedtuple('Response', 'content, status_code')(status_code=201)
                 
             def head(self, url, auth=None):
                 return namedtuple('Response', 'headers, status_code')(headers={'Etag':url},status_code=200)
@@ -190,9 +191,9 @@ class CouchStorageTests(unittest.TestCase):
                 'password':'pass',
             }
         global load_config
-        load_config = lambda : {'test_db': config}
+        load_config = lambda : {'couchdb': config}
         
-        BaseStorage.db_name = 'test_db'
+        CouchStorage.db_name = 'test_db'
         
     def tearDown(self):
         import requests as requests_external
@@ -203,7 +204,7 @@ class CouchStorageTests(unittest.TestCase):
         global load_config
         load_config = util.load_config
         
-        BaseStorage.db_name = None
+        CouchStorage.db_name = None
         
     def test_handle_response(self):
         raise NotImplementedError
@@ -235,7 +236,7 @@ class CouchStorageTests(unittest.TestCase):
             }
         with self._make_one() as storage:
             url, auth = storage._get_view('test_design', 'test_view', test_param)
-            self.assertIn('test_server/_design/test_design/_view/test_view?', url)
+            self.assertIn('test_server/test_db/_design/test_design/_view/test_view?', url)
             self.assertIn('test_key1=test_value1', url)
             self.assertIn('test_key2=test_value2', url)
             self.assertEqual(url.count('&'), 1)

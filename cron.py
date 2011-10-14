@@ -26,7 +26,7 @@ def scrape(store, rescrape, doc_list_name):
 if __name__ == '__main__':
     import argparse
     parser = argparse.ArgumentParser(description='Parser for Cron')
-    parser.add_argument('--rescrape', default=False, dest='rescrape', action='store_true', help='Scrape from Data Source')
+    parser.add_argument('--rescrape', '-r', default=False, dest='rescrape', action='store_true', help='Scrape from Data Source')
     parser.add_argument('place_list', default=None, nargs='?', type=str, help='List of Places')
     args = parser.parse_args()
     run(args.rescrape, args.place_list)
