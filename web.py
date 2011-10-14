@@ -1,5 +1,5 @@
 import logging, unittest
-from flask import Flask, render_template
+from flask import Flask, render_template, redirect
 from werkzeug.contrib.cache import SimpleCache
 from suggestor import suggest
 from storage import PlaceStorage as Storage

@@ -1,13 +1,10 @@
-var getInfoLink = function(name){
-    return 'http://wikitravel.org/en/'+name;
-};
-    
-var getTravelLink = function(name){
-    return 'http://skyscanner.net/'; // TODO: proper link
-};
-
 var cleanResults = function(){
     $('#responseContainer').empty();
+};
+
+var showSpinnter = function(){
+    cleanResults();
+    $('<img src="/static/spinner.gif" id="spinner">').appendTo($('#responseContainer'));
 };
     
 var addToResults = function(place){
@@ -63,19 +60,21 @@ var SearchRequest = {
         });
     },
     succeed:function(response){
-        cleanResults();
         for(var i in response[0]){
             InfoRequest.makeRequest(response[0][i]);
         }
         console.log('Success!');
+        $('#spinner').detach();
     },
     failed:function(response){
         console.error('Could not get result');
+        $('#spinner').detach();
     }
 };
 
 $(document).ready(function(){
     $('#searchButton').click(function(){
+        showSpinnter();
         SearchRequest.makeRequest($('#searchbox').val());
     });
     $('#searchbox').keyup(function(event){
