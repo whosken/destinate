@@ -1,5 +1,5 @@
 import logging, unittest
-from math import log1p
+from math import log
 from util import load_config
 from collections import Counter
 
@@ -23,14 +23,24 @@ class TfIdfProfiler(object):
     def _apply_idf(self, profiles, corpus, sparse=True):
         sparse_factor = 1 if not sparse else load_config()['encode_factor']
         profiles_count = len(profiles)
-        new_profiles = {}
+        
+        def calculate_score(tf_tuple):
+            term, tf = tf_tuple
+            idf = profiles_count / corpus[term]
+            if idf < 0: return term, 0
+            tf_idf = tf * log(idf)
+            return term, tf_idf
+            
+        def calculate_profile(profile_tuple):
+            name, profile = profile_tuple
+            limit = int(len(profile)/sparse_factor)
+            tf_idf_tuples = map(calculate_score, profile.iteritems())
+            top_terms = Counter(dict(tf_idf_tuples)).most_common()[:limit]
+            return name, dict(top_terms)
         
         logging.info('Starting IDF profiling')
-        for name, profile in profiles.iteritems():
-            limit = int(len(profile)/sparse_factor)
-            tf_idf_tuples = [(term, score * log1p(profiles_count / corpus[term])) for term, score in profile.iteritems()]
-            new_profiles[name] = dict(Counter(dict(tf_idf_tuples)).most_common()[:limit])
-        return new_profiles
+        profiles_list = map(calculate_profile,profiles.iteritems())
+        return dict(profiles_list)
         
     def _calculate_tf(self, doc_tuples):
         corpus = Counter()
