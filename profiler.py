@@ -39,12 +39,11 @@ class TfIdfProfiler(object):
             return name, dict(top_terms)
         
         logging.info('Starting IDF profiling')
-        profiles_list = map(calculate_profile,profiles.iteritems())
+        profiles_list = map(calculate_profile, profiles.iteritems())
         return dict(profiles_list)
         
     def _calculate_tf(self, doc_tuples):
         corpus = Counter()
-        profiles = {}
         
         def yield_words(body):
             for word in body.lower().split():
@@ -52,13 +51,16 @@ class TfIdfProfiler(object):
                     float(word)
                 except ValueError:
                     yield word
+                    
+        def calculate_tf(doc_tuple):
+            name, intro, body = doc_tuple
+            bag = Counter(yield_words(body))
+            corpus.update(bag.iterkeys())
+            return name, bag
         
         logging.info('Starting TF profiling')
-        for name, intro, body in doc_tuples:
-            bag = Counter(yield_words(body))
-            profiles[name] = bag
-            corpus.update(bag.iterkeys())
-        return profiles, corpus
+        profile_list = map(calculate_tf, doc_tuples)
+        return dict(profile_list), corpus
         
 
 class TfIdfProfilerTests(unittest.TestCase):
