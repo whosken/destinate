@@ -1,11 +1,11 @@
 import logging, unittest
-from flask import Flask, render_template, url_for
+from flask import Flask, render_template
 from werkzeug.contrib.cache import SimpleCache
 from suggestor import suggest
 from storage import PlaceStorage as Storage
+from redirector import build_link
 import requests
-import json
-import os
+import json, os
 
 app = Flask(__name__)
 cache = SimpleCache()
@@ -27,6 +27,10 @@ def get_place_info(place_name):
             response = json.dumps({'name':name,'info':info})
             cache.set(place_name, response, timeout=3600)
     return response
+    
+@app.route('/services/redirect/<target>/<place_name>')
+def redirect_user(target, place_name):
+    return redirect(build_link(target, place_name))
         
 @app.route('/')
 def search_home():

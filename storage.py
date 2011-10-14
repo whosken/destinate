@@ -67,6 +67,8 @@ class CouchStorage(object):
         url = self._get_object_url(object_id)
         if revision: data['_rev'] = revision
         response = requests.put(url, auth=self.key, data=json.dumps(data))
+        print response.status_code
+        print response.content
         return self._handle_response(response, object_id, data)
         
     def get_object(self, object_id):

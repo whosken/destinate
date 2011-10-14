@@ -20,14 +20,14 @@ var addToResults = function(place){
     var $info = $('<p>'+place.info+' </p>');
     $('<a/>',{
         html:'...',
-        href:getInfoLink(place.name),
+        href:'/services/redirect/travel/'+place.name,
         target:'_blank'
     }).appendTo($info);
     $info.appendTo($place);
     
     $('<a/>',{
         html:'Get Me There!',
-        href:getTravelLink(place.name),
+        href:'/services/redirect/travel/'+place.name,
         target:'_blank'
     }).appendTo($place);
     $('#responseContainer').append($place);

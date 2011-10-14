@@ -18,7 +18,7 @@ def suggest(target_name, count=20):
         try:
             name,info,body = response.next()
             target_profile = Counter(body.split())
-            storage.put_object(name, [name, info, body, target_profile])
+            storage.put_object(name, {'name':name, 'intro':info, 'body':body, 'profile':target_profile})
         except StopIteration:
             logging.warning('<{0}> is not a place name, use binary place search'.format(target_name))
             target_profile = Counter(target_name.lower().split())
