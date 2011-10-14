@@ -2,8 +2,3 @@ place_list: place_list.txt
 encode_factor: 5
 doc_count: 20
 
-notcouchdb: {
-        server: 'https://whosbacon.cloudant.com',
-        username: atilksellynnestlysinguen,
-        password: 70mdfildF405ryIN8sVlIed4
-    }
