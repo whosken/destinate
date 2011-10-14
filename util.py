@@ -29,7 +29,6 @@ def load_config():
     if not config:
         path = os.path.join(os.getcwd(), 'config.yaml')
         config = load_yaml(path)
-        #load_db_config('couchdb')
     return config
     
 def iter_txt(file_name):
@@ -37,7 +36,10 @@ def iter_txt(file_name):
     logging.info('Reading txt from <{0}>'.format(path))
     with open(path) as file:
         for line in file:
-            yield line.decode('utf-8')
+            try:
+                yield line.decode('utf-8')
+            except:
+                yield line
     
 def write_line(file_name, line):
     path = os.path.join(os.getcwd(),file_name)

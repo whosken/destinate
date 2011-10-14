@@ -16,9 +16,9 @@ def suggest(target_name, count=20):
     else:
         response = search_queries([target_name])
         try:
-            name,info,body = response.next()
+            name,intro,body = response.next()
             target_profile = Counter(body.split())
-            storage.put_object(name, {'name':name, 'intro':info, 'body':body, 'profile':target_profile})
+            storage.put_place((name,intro,body,target_profile))
         except StopIteration:
             logging.warning('<{0}> is not a place name, use binary place search'.format(target_name))
             target_profile = Counter(target_name.lower().split())
@@ -52,6 +52,9 @@ class SuggestorTests(unittest.TestCase):
             def get_place(self, target_name):
                 return TestPlace('test_profile',target_profile)
                 
+            def put_place(self,x):
+                return None
+                
             def get_all_ids(self):
                 return 'one', 'two', 'three'
                 
@@ -62,17 +65,20 @@ class SuggestorTests(unittest.TestCase):
                         TestPlace('three',profile_three),
                     ]
                     
-            def get_all_places(self):
+            def get_places(self,x):
                 return [
                         TestPlace('one',profile_one),
                         TestPlace('two',profile_two),
                         TestPlace('three',profile_three),
                     ]
                     
+        def iter_queries(id):
+            yield 'test','case','test case unit pass'
+                    
         global Storage
         Storage = TestStorage
         global search_queries
-        search_queries = lambda x: []
+        search_queries = iter_queries
         
     def tearDown(self):
         from storage import PlaceStorage
@@ -82,14 +88,14 @@ class SuggestorTests(unittest.TestCase):
         global search_queries
         search_queries = search
         
-    def test_suggest(self):
+    def test_suggest_known(self):
         ranked_names, ranked_scores = suggest('one')
         self.assertEqual(' '.join(ranked_names), 'two three')
         for i, score in enumerate(ranked_scores):
             if i+1 >= len(ranked_names): break
             self.assertTrue(score > ranked_scores[i+1])
     
-    def test_suggest(self):
+    def test_suggest_unknown(self):
         ranked_names, ranked_scores = suggest('test case unit pass')
         self.assertEqual(' '.join(ranked_names), 'one two three')
         for i, score in enumerate(ranked_scores):

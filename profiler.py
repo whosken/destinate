@@ -1,5 +1,5 @@
 import logging, unittest
-from math import log
+from math import log1p
 from util import load_config
 from collections import Counter
 
@@ -28,7 +28,7 @@ class TfIdfProfiler(object):
         logging.info('Starting IDF profiling')
         for name, profile in profiles.iteritems():
             limit = int(len(profile)/sparse_factor)
-            tf_idf_tuples = [(term, score * log(profiles_count / corpus[term])) for term, score in profile.iteritems()]
+            tf_idf_tuples = [(term, score * log1p(profiles_count / corpus[term])) for term, score in profile.iteritems()]
             new_profiles[name] = dict(Counter(dict(tf_idf_tuples)).most_common()[:limit])
         return new_profiles
         

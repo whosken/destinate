@@ -39,7 +39,8 @@ class CouchStorage(object):
         pass
             
     def  _get_object_url(self, object_id):
-        return '/'.join((self.server, self.db_name, object_id))
+        id = object_id.replace('/',' ').encode('utf-8')
+        return '/'.join((self.server, self.db_name, id))
         
     def _handle_bad_request(self, object_id, data):
         logging.error('Unable to store object <{0}>'.format(object_id))
@@ -59,16 +60,14 @@ class CouchStorage(object):
     
     def _handle_response(self, response, object_id, data=None):
         logging.info('Recieved status code <{0}>'.format(response.status_code))
-        if str(response.status_code) in self.handle_response:
-            return self.handle_response[str(response.status_code)](self, object_id, data)
+        if response.status_code in self.handle_response:
+            return self.handle_response[response.status_code](self, object_id, data)
         return response.content
     
     def put_object(self, object_id, data, revision = None):
         url = self._get_object_url(object_id)
         if revision: data['_rev'] = revision
         response = requests.put(url, auth=self.key, data=json.dumps(data))
-        print response.status_code
-        print response.content
         return self._handle_response(response, object_id, data)
         
     def get_object(self, object_id):
@@ -156,11 +155,14 @@ class PlaceStorage(CouchStorage):
     
     def json_to_place(self, place_json):
         place_dict = json.loads(place_json)
-        return Place(
-            name=place_dict['name'],
-            intro=place_dict['intro'],
-            body=place_dict['body'],
-            profile=place_dict['profile'])
+        try:
+            return Place(
+                name=place_dict['name'],
+                intro=place_dict['intro'],
+                body=place_dict['body'],
+                profile=place_dict['profile'])
+        except KeyError:
+            return Place('','','',{})
 
             
 import sys

@@ -1,3 +1,191 @@
+Valley of the Kings 
+Bahamas
+Galapagos Islands 
+Sharm El Sheikh
+Isle of Man 
+New York
+Chamonix 
+Madrid
+Cannes 
+Zermatt
+Courchevel 
+Algarve
+Berlin 
+Victoria Falls
+Corfu 
+Marbella
+Wroclaw 
+Bora Bora
+Iguassu Falls 
+Malta 
+Masai Mara
+Playa Del Carmen 
+Florence
+Amsterdam 
+Disney World
+Miami Beach
+Milan
+Phuket
+Beverly Hills
+Rome
+Providenciales
+Marrakech
+Barcelona
+Venice
+Buenos Aires
+Las Vegas
+Lithgow
+Shanghai
+Baie Lounge
+Beijing
+Nairobi
+San Francisco
+Chicago
+Municipio de Comala
+Miami
+Istanbul
+Cape Town
+Hua Hin
+Miami Beach
+Tokyo
+Cannes
+Sydney
+San Diego
+Mexico City
+Elounda
+Solidariadad
+Washington
+Amsterdam
+Ubud
+Playa del Carmen
+Punta Cana
+New Delhi
+Mumbai
+Macau
+Berlin
+Madrid
+Athens
+Boston
+Nusa Dua
+Prague
+Vilamoura
+Melbourne
+Sao Paulo
+Lisbon
+Scottsdale
+Udaipur
+Bora Bora
+Rio de Janeiro
+San Jose del Cabo
+Chiang Mai
+South Beach
+Santa Monica
+Sabi Sand Reserve
+Antigua
+Montego Bay
+Seminyak Beach
+West Hollywood
+Krabi
+San Miguel de Allende
+Geneva
+Uluwatu
+Jimbaran
+Toronto
+Masai Mara Reserve
+Lech ¡VArlberg
+Vienna
+Hvar
+Abu Dhabi
+Great Barrier Reef
+Soufriere
+Stockholm
+Cabo San Lucas
+Montreal
+San Pedro de Atacama
+Cusco
+Madikwe Game Reserve
+Sunny Isles Beach
+St. Moritz
+Kuala Lumpur
+Grumeti Reserves
+Jakarta
+Jaipur
+Seville
+New Orleans
+Negril
+Hoi An
+Milford Sound
+Queenstown
+Philipsburg
+Cayo Largo
+Rhodes
+Charlotte Amalie
+Cruz Bay
+Bridgetown
+Banff
+Lake Tahoe
+Rhodes
+Salzburg
+Amalfi
+Bath
+Siena
+Dingle
+Bruges
+Lucerne
+Vatican City
+Sicily
+Rambagh Palace
+Italy
+New Zealand
+New York
+Maldives
+Turkey
+Four Seasons Hotel Firenze
+Australia
+Blanket Bay
+Barbados
+Paris
+France 
+London 
+Egypt 
+The Cyclades 
+Hotel Saint-Barth Isle de France
+Shompole
+Cuba 
+Four Seasons Hotel Sharm El Sheikh
+Rome 
+Bushmans Kloof
+The Datai Langkawi
+Devi Garh
+South Africa 
+The Ritz-Carlton
+The Chedi Muscat
+The Landmark Mandarin Oriental
+Sydney 
+Spain 
+Swan Hellenic 
+Edinburgh 
+Mauritius 
+Anassa
+Phuket 
+Lizard Island
+Barcelona 
+Morocco 
+La Residencia
+Venice 
+Ciragan Palace Kempinski Istanbul 
+Lilianfels Blue Mountains,W
+San Francisco
+Air New Zealand 
+Carrier 
+Holland America Line 
+The Dorchester
+The Peninsula New York 
+Greaves Travel 
+Sandy Lane
+North Island
+Singita Sabi Sand
+Beijing Capital International 
 Orlando
 Puerto Banus 
 Sydney
@@ -71,239 +259,3 @@ Cuba
 Barbados
 Paphos 
 Abu Simbel
-Valley of the Kings 
-Bahamas
-Galapagos Islands 
-Sharm El Sheikh
-Isle of Man 
-New York
-Chamonix 
-Madrid
-Cannes 
-Zermatt
-Courchevel 
-Algarve
-Berlin 
-Victoria Falls
-Corfu 
-Marbella
-Wroclaw 
-Bora Bora
-Iguassu Falls 
-Chich?n Itz?
-Malta 
-Masai Mara
-Playa Del Carmen 
-Florence
-Amsterdam 
-Disney World
-Miami Beach
-Milan
-Phuket
-Beverly Hills
-Rome
-Providenciales
-Marrakech
-Barcelona
-Venice
-Buenos Aires
-Las Vegas
-Lithgow
-Shanghai
-Baie Lounge
-Beijing
-Nairobi
-San Francisco
-Chicago
-Municipio de Comala
-Miami
-Istanbul
-Cape Town
-Hua Hin
-Miami Beach
-Tokyo
-Cannes
-Sydney
-San Diego
-Mexico City
-Elounda
-Solidariadad
-Washington
-Amsterdam
-Ubud
-Playa del Carmen
-Punta Cana
-New Delhi
-Mumbai
-Macau, S.A.R.
-Berlin
-Madrid
-Athens
-Boston
-Nusa Dua
-Prague
-Vilamoura
-Melbourne
-Sao Paulo
-Lisbon
-Scottsdale
-Udaipur
-Bora Bora
-Rio de Janeiro
-San Jose del Cabo
-Chiang Mai
-South Beach
-Santa Monica
-Sabi Sand Reserve
-Antigua
-Montego Bay
-Seminyak Beach
-West Hollywood
-Krabi
-San Miguel de Allende
-Geneva
-Uluwatu
-Jimbaran
-Toronto
-Masai Mara Reserve
-Lech ¡VArlberg
-Vienna
-Hvar
-Abu Dhabi
-Great Barrier Reef
-Soufriere
-Stockholm
-Cabo San Lucas
-Montreal
-San Pedro de Atacama
-Cusco
-Madikwe Game Reserve
-Sunny Isles Beach
-St. Moritz
-Kuala Lumpur
-Grumeti Reserves
-Jakarta
-Jaipur
-Seville
-New Orleans
-Negril
-Hoi An
-Milford Sound, New Zealand
-Queenstown, New Zealand
-Philipsburg, St. Maarten
-Cayo Largo, Cuba
-Rhodes, Greece
-Charlotte Amalie, St. Thomas
-Cruz Bay, St. John
-Bridgetown, Barbados
-Banff, Canada
-Lake Tahoe, California
-Rhodes, Greece
-Salzburg, Austria
-Amalfi, Italy
-Bath, England
-Siena, Italy
-Dingle, Ireland
-Bruges, Belgium
-Lucerne, Switzerland
-Vatican City, Italy
-Sicily
-Rambagh Palace, Jaipur, India
-Italy
-New Zealand
-New York
-Maldives
-Turkey
-Four Seasons Hotel Firenze, Italy
-Australia
-Blanket Bay, Glenorchy, New Zealand
-Barbados
-Paris
-France 
-London 
-Egypt 
-The Cyclades 
-Hotel Saint-Barth Isle de France, St Barts 
-Shompole, Kenya 
-Cuba 
-Four Seasons Hotel Sharm El Sheikh, Egypt 
-Rome 
-Shangri-La's Tanjung Aru Resort & Spa, Malaysia 
-Bushmans Kloof, South Africa 
-Mandarin Oriental Dhara Dhevi, Chiang Mai, Thailand 
-The Datai Langkawi, Malaysia 
-Hotel Splendido, Portofino, Italy 
-One&Only Ocean Club, Bahamas 
-USA 
-The Twelve Apostles Hotel and Spa, Cape Town 
-Seychelles 
-Devi Garh, Udaipur, India 
-South Africa 
-The Ritz-Carlton, Istanbul 
-The Chedi Muscat, Oman 
-The Landmark Mandarin Oriental, Hong Kong 
-Sydney 
-Claridge's, London 
-Machu Picchu Sanctuary Lodge, Peru 
-Spain 
-Swan Hellenic 
-Edinburgh 
-Mauritius 
-One&Only Reethi Rah, Maldives 
-Babington House, Somerset 
-Cunard Line 
-Pezula Spa, Pezula Resort & Spa, Knysna, South Africa Sp 
-Anassa, Cyprus 
-The Carlyle, New York 
-The Chedi Phuket, Thailand 
-Le Manoir aux Quat'Saisons, Oxfordshire 
-Four Seasons Hotel Milano, Italy 
-Singita Grumeti Reserves, Tanzania 
-Virgin Atlantic 
-Hotel Cipriani, Venice 
-Seasons in Style 
-The Venice-Simplon Orient-Express 
-British Airways 
-Phuket 
-Hotel Tresanton, Cornwall 
-Lizard Island, Great Barrier Reef, Australia 
-Barcelona 
-Anantara Spa, Anantara Hua Hin Resort & Spa, Thailand 
-Four Seasons Resort Whistler, British Columbia, Canada 
-Park Hyatt Tokyo 
-Morocco 
-Soneva Gili by Six Senses, Maldives 
-La Residencia, Mallorca 
-Windstar Cruises 
-Venice 
-The Spa, Mandarin Oriental Hyde Park, London 
-Pudong Shangri-La Shanghai 
-Ciragan Palace Kempinski Istanbul 
-The Soho Hotel, London 
-Zara Spa, Movenpick Resort & Spa Dead Sea, Jordan 
-C-Side, Cowley Manor, Gloucestershire 
-Lilianfels Blue Mountains,W, Australia 
-San Francisco 
-Air New Zealand 
-Carrier 
-Holland America Line 
-The Dorchester, London 
-The Peninsula New York 
-Greaves Travel 
-Pathways, The Sarojin, Khao Lak, Thailand 
-Four Seasons Hotel Gresham Palace Budapest 
-Sandy Lane, Barbados 
-Grand Hotel a Villa Feltrinelli, Lake Garda, Italy 
-North Island, Seychelles 
-Singita Sabi Sand, South Africa 
-CV Travel 
-The Yachts of Seabourn 
-Explora en Patagonia Hotel Salto Chico, Chile 
-InterContinental Paris Le Grand 
-BMI 
-Beijing Capital International 
-ITC Classics 
-Banyan Tree Spa Phuket, Thailand 
-Silversea Cruises 
-Abercrombie & Kent 
-Eurostar

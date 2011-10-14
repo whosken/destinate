@@ -2,31 +2,34 @@ import logging, unittest
 from storage import PlaceStorage as Storage
 from requestor import search_queries
 from profiler import profile
-import util
 
-def run(rescrape=False, doc_list_name=None):
+def run(rescrape=False, from_list=None):
     store = Storage()
-    docs = scrape(store, rescrape, doc_list_name)
+    docs = scrape(store, rescrape, from_list)
     doc_tuples = profile(docs)
     list(store.put_places(doc_tuples))
     store.compact()
     
-def scrape(store, rescrape, doc_list_name):
-    doc_ids = store.get_all_ids() if not doc_list_name else util.iter_txt(doc_list_name)
+def scrape(store, rescrape, from_list):
+    if not (from_list and rescrape):
+        doc_ids = store.get_all_ids()
+    else:
+        from util import iter_txt, load_config
+        doc_ids = iter_txt(load_config()['place_list'])
     
     if rescrape:
-        return search_queries(doc_ids)
-        
-    def get_places():
+        for name,intro,body in search_queries(doc_ids):
+            store.put_place((name,intro,body,''))
+            yield name,intro,body
+    else:
         for name, intro, body, _ in store.get_places(doc_ids):
             yield name,intro,body
-    return get_places()
     
     
 if __name__ == '__main__':
     import argparse
     parser = argparse.ArgumentParser(description='Parser for Cron')
     parser.add_argument('--rescrape', '-r', default=False, dest='rescrape', action='store_true', help='Scrape from Data Source')
-    parser.add_argument('place_list', default=None, nargs='?', type=str, help='List of Places')
+    parser.add_argument('--from_list', '-l', default=False, dest='from_list', action='store_true', help='Use List of Places defined in yaml')
     args = parser.parse_args()
-    run(args.rescrape, args.place_list)
+    run(args.rescrape, args.from_list)
