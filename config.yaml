@@ -1,4 +1,4 @@
 place_list: place_list.txt
-encode_factor: 5
+encode_factor: 2
 doc_count: 20
 

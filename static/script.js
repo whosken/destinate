@@ -17,7 +17,7 @@ var addToResults = function(place){
     var $info = $('<p>'+place.info+' </p>');
     $('<a/>',{
         html:'...',
-        href:'/services/redirect/travel/'+place.name,
+        href:'/services/redirect/info/'+place.name,
         target:'_blank'
     }).appendTo($info);
     $info.appendTo($place);
