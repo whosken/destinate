@@ -9,7 +9,7 @@ var showSpinnter = function(){
     
 var addToResults = function(place){
     var $place = $('<div/>',{
-        class:'place',
+        class:'result',
         name:place.name,
         html:'<h3>'+place.name+'</h3>'
     });

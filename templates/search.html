@@ -1,19 +1,19 @@
+<!DOCTYPE html>
 <html>
     <head>
-        <title>Vacation Guru: Where do you want to go? What do you want to see?</title>
-        <style>
-            label {
-                display:block;
-            }
-        </style>
+        <title>Vacation Guru: What do you want to see?</title>
+        <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+        <link href="/static/style.css" type="text/css" rel="stylesheet" />
     </head>
     <body>
         <h1>Vacation Guru</h1>
-        <label for="searchbox">Where do you want to go? What do you want to see?</label>
-        <input id="searchbox" type="text" value placeholder="Place / Sight" />
-        <button id="searchButton">Tell me!</button>
+        <div id="controlPanel">
+            <label for="searchbox">Enter a place you like, we'll recommend similar destinations!</label>
+            <input id="searchbox" type="text" value placeholder="Place / Sight" />
+            <button id="searchButton">Tell me!</button>
+        </div>
         <div id="responseContainer"></div>
-        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.js"></script>
-        <script src="/static/script.js"></script>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.js" type="text/javascript"></script>
+        <script src="/static/script.js" type="text/javascript"></script>
     </body>
 </html>
