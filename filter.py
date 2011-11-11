@@ -1,12 +1,13 @@
 import logging, unittest
 from operator import mul, itemgetter
 from math import sqrt
+from heapq import nlargest
 
-def score_candidates(target_profile, candidates):
+def score_candidates(target_profile, candidates, count=20):
     filter = CosSimFilter()
     scored = filter.score_candidates(target_profile, candidates)
-    return sorted(list(scored),key=itemgetter(1), reverse=True)
-
+    return nlargest(count, scored, key=itemgetter(1))
+    
 class CosSimFilter(object):
     """
     Ranks a list of candidates by cos-sim distance to a target

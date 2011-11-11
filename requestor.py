@@ -20,9 +20,9 @@ class WikiTravelRequestor(object):
         """
         Entry function that takes a query term and return a parsed tuple with name, info, and body values
         """
-        logging.info('Requesting WikiTravel for query <{0}>'.format(query))
-        response = self._fetch_page(query.strip().replace(' ','_'), language)
-        logging.info('Parsing WikiTravel result for query <{0}>'.format(query))
+        logging.info('Requesting WikiTravel for query <{0}>'.format(repr(query)))
+        response = self._fetch_page(query.strip().title().replace(' ','_'), language)
+        logging.info('Parsing WikiTravel result for query <{0}>'.format(repr(query)))
         return self._parse_page_to_place(response.content)
     
     def _fetch_page(self, query, language):
@@ -43,6 +43,7 @@ class WikiTravelRequestor(object):
         body = clean_string(body)
         intro = body[:500 if len(body) >= 500 else len(body)]
         return name, intro, body
+
         
 import sys
 requests.settings.verbose = sys.stderr # TODO: point to logger stream

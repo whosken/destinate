@@ -7,6 +7,11 @@ import util
 
 def suggest(target_name, count=20):
     logging.info('Suggesting locations for query: <{0}>'.format(target_name))
+    target_profile, places = get_target_candidate_profiles(target_name)
+    scored = score_candidates(target_profile, places, count)
+    return zip(*scored)
+    
+def get_target_candidate_profiles(target_name):
     storage = Storage()
     places = None
 
@@ -23,17 +28,7 @@ def suggest(target_name, count=20):
             logging.warning('<{0}> is not a place name, use binary place search'.format(target_name))
             target_profile = Counter(target_name.lower().split())
             places = storage.get_places_by_words(target_profile.iterkeys())
-    if not places: places = storage.get_places(doc_ids)
-
-    scored = score_candidates(target_profile, places)
-    
-    def filter_target():
-        for index, (name, score) in enumerate(scored):
-            if index >= count: break
-            if name == target_name: continue
-            yield name, score
-        
-    return zip(*filter_target())
+    return target_profile, places or storage.get_places(doc_ids)
     
 
 class SuggestorTests(unittest.TestCase):

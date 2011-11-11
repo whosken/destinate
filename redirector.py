@@ -1,5 +1,7 @@
 import logging, unittest
 
+# TODO: log to user preference db
+
 def build_travel_link(place_name):
     logging.info('Flight redirect to <{0}>'.format(place_name))
     return 'http://skyscanner.net/'
