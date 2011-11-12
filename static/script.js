@@ -1,9 +1,7 @@
 var $resultContainer = $('#resultContainer');
 var $infoContainer = $('#infoContainer');
-
-var showSpinnter = function(){
-    $('<img src="/static/spinner.gif" id="spinner">').appendTo($resultContainer);
-};
+var $controlDiv = $('#controlDiv');
+var $spinner = $('#spinner');
 
 var loadInfo = function(place){
     var $place = $('<div/>',{
@@ -30,6 +28,7 @@ var loadInfo = function(place){
 
 var InfoRequest = {
     makeRequest:function(placeName){
+        $spinner.show();
         $.ajax({
             url:'/services/info/'+placeName,
             type:'GET',
@@ -41,9 +40,11 @@ var InfoRequest = {
     succeed:function(response){
         console.log(response);
         loadInfo(response);
+        $spinner.hide();
         console.log('Success!');
     },
     failed:function(response){
+        $spinner.hide();
         console.error('Could not get result');
         console.log(response);
     }
@@ -69,7 +70,6 @@ var buildResultGraph = function(places){
     
     for (var i in places){
         var place = places[i];
-        if (place[1] >= 1) continue;
         var $candidate = buildResultNode(place[0],place[1]);
         $candidate.appendTo($resultContainer);
     }
@@ -77,7 +77,7 @@ var buildResultGraph = function(places){
 
 var SearchRequest = {
     makeRequest:function(searchTerm){
-        showSpinnter();
+        $spinner.show();
         $.ajax({
             url:'/services/suggest/'+searchTerm,
             type:'GET',
@@ -89,13 +89,13 @@ var SearchRequest = {
     succeed:function(response){
         console.log(response);
         buildResultGraph(response);
+        $spinner.hide();
         console.log('Success!');
-        $('#spinner').detach();
     },
     failed:function(response){
+        $spinner.hide();
         console.error('Could not get result');
         console.log(response);
-        $('#spinner').detach();
     }
 };
 
@@ -110,4 +110,5 @@ $(document).ready(function(){
             $('#searchButton').click();
         }
     });
+    $spinner.hide();
 });
