@@ -1,5 +1,8 @@
 label { display:block }
-#mapCanvas { height:80%; position:absolute; right:10px; bottom:10px; width:50% }
-#responseContainer { height:100%; position:absolute; left:10px; width:45% }
-.result { background:#ECF1EF; border:1px }
-.result:hover { -moz-box-shadow:1px 1px 5px #aaa; -webkit-box-shadow: 1px 1px 5px #aaa; box-shadow: 1px 1px 5px #aaa; }
+button { background:#ECF1EF; border:1px; color:#050 }
+button:hover { -moz-box-shadow:1px 1px 5px #aaa; -webkit-box-shadow: 1px 1px 5px #aaa; box-shadow: 1px 1px 5px #aaa; }
+.search { height: 20px; }
+#searchbox { width: 50%; }
+#searchButton { border: 1px solid }
+#infoContainer { position:absolute; right:10px; width:45%; }
+#resultContainer { position:absolute; left:10px; width:50% }

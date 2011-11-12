@@ -8,8 +8,7 @@ import util
 def suggest(target_name, count=20):
     logging.info('Suggesting locations for query: <{0}>'.format(target_name))
     target_profile, places = get_target_candidate_profiles(target_name)
-    scored = score_candidates(target_profile, places, count)
-    return zip(*scored)
+    return score_candidates(target_profile, places, count)
     
 def get_target_candidate_profiles(target_name):
     storage = Storage()
@@ -84,14 +83,14 @@ class SuggestorTests(unittest.TestCase):
         search_queries = search
         
     def test_suggest_known(self):
-        ranked_names, ranked_scores = suggest('one')
+        ranked_names, ranked_scores = zip(*suggest('one'))
         self.assertEqual(' '.join(ranked_names), 'two three')
         for i, score in enumerate(ranked_scores):
             if i+1 >= len(ranked_names): break
             self.assertTrue(score > ranked_scores[i+1])
     
     def test_suggest_unknown(self):
-        ranked_names, ranked_scores = suggest('test case unit pass')
+        ranked_names, ranked_scores = zip(*suggest('test case unit pass'))
         self.assertEqual(' '.join(ranked_names), 'one two three')
         for i, score in enumerate(ranked_scores):
             if i+1 >= len(ranked_names): break
