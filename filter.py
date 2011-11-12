@@ -15,6 +15,7 @@ class CosSimFilter(object):
     
     def score_candidates(self, target_profile, candidates):
         for candidate in candidates:
+            if candidate.profile == target_profile: continue
             _, a, b = self._create_vectors(target_profile, candidate.profile)
             yield candidate.name, self._calculate_score(a,b)
     
