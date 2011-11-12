@@ -2,6 +2,11 @@ var $resultContainer = $('#resultContainer');
 var $infoContainer = $('#infoContainer');
 var $controlDiv = $('#controlDiv');
 var $spinner = $('#spinner');
+var $targetLabel = $('#targetLabel');
+
+var updateTargetLabel = function(place_name){
+    $targetLabel.html(place_name+' is similar to these destinations:');
+};
 
 var loadInfo = function(place){
     var $place = $('<div/>',{
@@ -23,11 +28,21 @@ var loadInfo = function(place){
         href:'/services/redirect/travel/'+place.name,
         target:'_blank'
     }).appendTo($place);
+    
+    $('<button/>',{
+        html:'Others Like This',
+        name:place.name+'_chain',
+        click:function(){
+            SearchRequest.makeRequest(place.name);
+        }
+    }).appendTo($place);
+    
     $infoContainer.html($place);
 };
 
 var InfoRequest = {
     makeRequest:function(placeName){
+        $infoContainer.empty();
         $spinner.show();
         $.ajax({
             url:'/services/info/'+placeName,
@@ -51,7 +66,7 @@ var InfoRequest = {
 };
 
 var buildResultNode = function(place_name, weight){
-    var fontSize = weight * window.innerWidth;
+    var fontSize = weight * 500;
     var $place = $('<button/>',{
         class:'result',
         html:place_name,
@@ -65,9 +80,6 @@ var buildResultNode = function(place_name, weight){
 };
 
 var buildResultGraph = function(places){
-    // var $target = buildResultNode($('#searchbox').val(),1);
-    // $target.appendTo($resultContainer);
-    
     for (var i in places){
         var place = places[i];
         var $candidate = buildResultNode(place[0],place[1]);
@@ -77,7 +89,10 @@ var buildResultGraph = function(places){
 
 var SearchRequest = {
     makeRequest:function(searchTerm){
+        $infoContainer.empty();
+        $resultContainer.empty();
         $spinner.show();
+        updateTargetLabel(searchTerm);
         $.ajax({
             url:'/services/suggest/'+searchTerm,
             type:'GET',
@@ -101,9 +116,8 @@ var SearchRequest = {
 
 $(document).ready(function(){
     $('#searchButton').click(function(){
-        $infoContainer.empty();
-        $resultContainer.empty();
         SearchRequest.makeRequest($('#searchbox').val());
+        $targetLabel.show();
     });
     $('#searchbox').keyup(function(event){
         if(event.keyCode==13){
@@ -111,4 +125,5 @@ $(document).ready(function(){
         }
     });
     $spinner.hide();
+    $targetLabel.hide();
 });
