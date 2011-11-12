@@ -2,6 +2,7 @@ import requests
 import logging, unittest
 import re
 from werkzeug.contrib.cache import SimpleCache
+from util import cached
 
 cache = SimpleCache()
 
