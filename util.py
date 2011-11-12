@@ -1,6 +1,7 @@
 import os, re
 import logging, unittest
 import yaml
+from functools import wraps
 
 config = {}
 def load_yaml(path):
@@ -45,6 +46,21 @@ def write_line(file_name, line):
     path = os.path.join(os.getcwd(),file_name)
     with open(path, 'a') as file:
         file.write('\n'+line)
+        
+def cached(cache, timeout=60 ** 2, ignore_first_arg=False):
+    def decorator(func):
+        @wraps(func)
+        def cached_func(*args, **kwargs):
+            str_args = str(args) if not ignore_first_arg else str(args[1:])
+            keys = [func.__name__, str_args, str(kwargs.values())]
+            cache_key = ';'.join(keys)
+            cached = cache.get(cache_key)
+            if cached: return cached
+            result = func(*args, **kwargs)
+            cache.set(cache_key, result, timeout=timeout)
+            return result
+        return cached_func
+    return decorator
     
 class UtilTests(unittest.TestCase):
     def test_load_yaml(self):
@@ -54,6 +70,25 @@ class UtilTests(unittest.TestCase):
         self.assertIn(test_var, config)
         self.assertEqual(config[test_var], test_value)
     
+    def test_cached(self):
+        from werkzeug.contrib.cache import SimpleCache
+        cache = SimpleCache()
+        func = lambda : True
+        cached_func = cached(cache)(func)
+        
+        self.assertTrue(cached_func())
+        func = lambda : False
+        self.assertTrue(cached_func())
+        
+    def test_cached_ignore_first_arg(self):
+        from werkzeug.contrib.cache import SimpleCache
+        cache = SimpleCache()
+        func = lambda x: x or False
+        cached_func = cached(cache, ignore_first_arg=True)(func)
+        
+        self.assertTrue(cached_func(True))
+        self.assertTrue(cached_func(False))
+        
     
 def suite():
     suite = unittest.TestSuite()

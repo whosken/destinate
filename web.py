@@ -4,17 +4,19 @@ from werkzeug.contrib.cache import SimpleCache
 from suggestor import suggest
 from storage import PlaceStorage as Storage
 from redirector import build_link
-import requests
+from util import cached
 import json, os
 
 app = Flask(__name__)
 cache = SimpleCache()
 
+@cached(cache)
 @app.route('/services/suggest/<target_text>')
 def get_similar_places(target_text):
     logging.info('Searching for place <{0}>'.format(target_text))
     return json.dumps(suggest(target_text))
     
+@cached(cache)
 @app.route('/services/info/<place_name>')
 def get_place_info(place_name):
     logging.info('Getting place <{0}> info'.format(place_name))

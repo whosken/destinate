@@ -1,6 +1,9 @@
 import requests
 import logging, unittest
 import re
+from werkzeug.contrib.cache import SimpleCache
+
+cache = SimpleCache()
 
 def search_queries(queries, language='en'):
     requestor = WikiTravelRequestor()
@@ -25,6 +28,7 @@ class WikiTravelRequestor(object):
         logging.info('Parsing WikiTravel result for query <{0}>'.format(repr(query)))
         return self._parse_page_to_place(response.content)
     
+    @cached(cache,ignore_first_arg=True)
     def _fetch_page(self, query, language):
         url = '/'.join((self.base_url,language,query))
         return requests.get(url)

@@ -3,8 +3,10 @@ import os
 import json
 import requests
 from collections import namedtuple
-from util import load_config, load_db_config
+from util import load_config, load_db_config, cached
+from werkzeug.contrib.cache import SimpleCache
 
+cache = SimpleCache()
 Place = namedtuple('Place', 'name, intro, body, profile')
 Topic = namedtuple('Topic', 'profile, members')
 
@@ -70,6 +72,7 @@ class CouchStorage(object):
         response = requests.put(url, auth=self.key, data=json.dumps(data))
         return self._handle_response(response, object_id, data)
         
+    @cached(cache,ignore_first_arg=True)
     def get_object(self, object_id):
         url = self._get_object_url(object_id)
         response = requests.get(url, auth=self.key)
@@ -81,6 +84,7 @@ class CouchStorage(object):
         if 'Etag' in response.headers:
             return response.headers['Etag'].replace('"','')
     
+    @cached(cache,ignore_first_arg=True)
     def _get_view(self, design_name, view_name, view_params):
         view_id = '/'.join(('_design', design_name, '_view', view_name))
         url = '/'.join((self.server, self.db_name, view_id))
