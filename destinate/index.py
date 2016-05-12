@@ -2,13 +2,15 @@ import storage
 import nomadlist
 import wikivoyage
 
-def build():
-    cities = nomadlist.list_cities()
-    storage.store_cities(cities)
-    for city in cities:
-        wiki = wikivoyage.find_city(city['name'])
-        guide = create_guide(city, wiki)
-        storage.store_city(guide)
-
-def create_guide(city, wiki=None):
-    pass
+def build(cities=None):
+    if not cities:
+        cities = nomadlist.list_cities()
+        storage.store_cities(cities)
+    city_docs = map(build_guide, cities)
+    storage.index_cities(city_docs)
+    return True
+    
+def build_guide(city):
+    guide = wikivoyage.find_city(city['name'])
+    return dict(city.items() + guide.items())
+    

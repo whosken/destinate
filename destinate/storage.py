@@ -1,8 +1,8 @@
 import elastic
 import mongo
 
-def upsert_cities(cities):
+def store_cities(cities):
     pass
 
-def upsert_city(city):
+def index_cities(cities):
     pass
