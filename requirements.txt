@@ -10,6 +10,7 @@ itsdangerous==0.24
 Jinja2==2.8
 MarkupSafe==0.23
 mwclient==0.8.1
+mwparserfromhell==0.4.3
 ndg-httpsclient==0.4.0
 pyasn1==0.1.9
 pycparser==2.14
