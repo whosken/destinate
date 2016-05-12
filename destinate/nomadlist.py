@@ -31,7 +31,7 @@ def format_city(city):
             ],
         'location': info['location'],
         'weather': format_weather(info['weather']),
-        'months_ideal': info.get('monthsToVisit',[]),
+        'months_ideal': info['monthsToVisit'],
         'scores_nomadlist': {
             'nightlife': scores['nightlife'],
             'leisure': scores['leisure'],
