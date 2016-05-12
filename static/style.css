@@ -1,6 +1,0 @@
-label { display:block }
-button { background:#ECF1EF; border:1px; color:#050 }
-button:hover { -moz-box-shadow:1px 1px 5px #aaa; -webkit-box-shadow: 1px 1px 5px #aaa; box-shadow: 1px 1px 5px #aaa; }
-.search { height: 20px; }
-#searchbox { width: 50%; }
-#searchButton { border: 1px solid }
