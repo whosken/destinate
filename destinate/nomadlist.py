@@ -16,7 +16,8 @@ def get_uri(action='list', scope='cities', name=None):
     return u'{}/{}/{}/{}'.format(HOST, action, scope, name or '')
 
 def fetch(*args, **kwargs):
-    response = requests.get(get_uri(*args, **kwargs))
+    uri = get_uri(*args, **kwargs)
+    response = requests.get(uri)
     response.raise_for_status()
     data = response.json()
     return map(formats[data['type']], (data['result']))

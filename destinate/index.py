@@ -3,11 +3,17 @@ import nomadlist
 import wikivoyage
 
 def build(cities=None):
-    if not cities:
-        cities = nomadlist.list_cities()
-        storage.store_cities(cities)
+    index_guides(cities or index_cities())
+    return True
+    
+def index_cities():
+    cities = nomadlist.list_cities()
+    storage.upsert_cities(cities)
+    return cities
+    
+def index_guides(city):
     city_docs = map(build_guide, cities)
-    storage.index_cities(city_docs)
+    storage.upsert_cities(city_docs)
     return True
     
 def build_guide(city):

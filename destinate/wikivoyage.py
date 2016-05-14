@@ -45,6 +45,7 @@ class LazyClient(object):
     
     def __getattr__(self, name):
         if not LazyClient._site:
+            print 'connecting to wikivoyage'
             LazyClient._site = mwclient.Site(HOST)
         return getattr(LazyClient._site, name)
 
