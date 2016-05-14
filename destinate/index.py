@@ -11,7 +11,7 @@ def index_cities():
     storage.upsert_cities(cities)
     return cities
     
-def index_guides(city):
+def index_guides(cities):
     city_docs = map(build_guide, cities)
     storage.upsert_cities(city_docs)
     return True

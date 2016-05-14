@@ -1,6 +1,7 @@
 import requests
 
-HOST = u'https://nomadlist.com/api/v2/'
+API_HOST = u'https://nomadlist.com/api/v2'
+PaGE_HOST = u'https://nomadlist.com'
 
 def list_cities():
     return fetch()
@@ -13,10 +14,11 @@ VALID_SCOPES = ('cities','regions','countries')
 def get_uri(action='list', scope='cities', name=None):
     if action not in VALID_ACTIONS or scope not in VALID_SCOPES:
         raise ValueError
-    return u'{}/{}/{}/{}'.format(HOST, action, scope, name or '')
+    return u'{}/{}/{}/{}'.format(API_HOST, action, scope, name or '')
 
 def fetch(*args, **kwargs):
     uri = get_uri(*args, **kwargs)
+    print 'fetching', uri
     response = requests.get(uri)
     response.raise_for_status()
     data = response.json()
@@ -37,6 +39,7 @@ def format_city(city):
         'weather': format_weather(info['weather']),
         'months_ideal': info['monthsToVisit'],
         'nomadlist':{
+            'uri': '{}/{}'.format(PaGE_HOST, info['city']['slug']),
             'scores':{
                 'nightlife': scores['nightlife'],
                 'leisure': scores['leisure'],

@@ -7,17 +7,20 @@ def find_city(city_name):
     return fetch(city_name)
 
 def fetch(page_name):
+    print 'fetching', page_name.encode('utf8')
     page = site.Pages[page_name]
-    retun {
+    return {
         'guide': build_guide(page.text()),
-        'images': format_image(page.images())
+        'images': map(format_image, page.images())
         }
         
 def format_image(image):
+    info = image.imageinfo
     return {
-        'url': image['url'],
-        'height': image['height'],
-        'width': image['width'],
+        'title': image.page_title,
+        'url': info['url'],
+        'height': info['height'],
+        'width': info['width'],
         }
     
 def build_guide(code):

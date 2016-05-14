@@ -33,16 +33,14 @@ def create_index(index=None):
 def refresh_index(index=None):
     return client.indices.refresh(index=index or SEARCH_INDEX)
 
-def search(query=None, index=None, fields=None):
-    print 'searching', query
+def search(query=None, index=None, fields=None, page=0, count=10, _all=False):
     results = client.search(
         index=index or SEARCH_INDEX,
-        body={'query':query} if query else {},
-        filter_path=fields
+        body={'query': query or {'match_all':{}}},
+        from_=page*count,
+        size=count if not _all else 5000, # NOTE: there are roughly 4000+ cities with 100k+ population
+        _source_include=fields
         )
-    return parse_results(results)
-    
-def parse_results(results):
-    print 'found', results['hits'].get('total')
-    return (h['_source']['doc'] for h in results['hits'].get('hits',[]))
-    
+    total = results['hits'].get('total')
+    print 'found', total
+    return (h['_source'] for h in results['hits'].get('hits',[]))
