@@ -11,18 +11,18 @@ def upsert_cities(cities, reset=False):
     return True
     
 def search_cities(query=None, **options):
-    return elastic.search(
-        query,
-        index=elastic.SEARCH_INDEX,
-        fields=[
+    if 'fields' not in options:
+        options['fields'] = [
             'name',
             'cid',
             'regions',
             'location',
             'images'
-            ],
-        **options
-        )
+            ]
+    return elastic.search(
+        query,
+        index=elastic.SEARCH_INDEX,
+        **options)
 
 def create_city_upsert(city):
     return {
