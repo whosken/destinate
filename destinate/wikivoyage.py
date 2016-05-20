@@ -11,7 +11,7 @@ def fetch(page_name):
     page = site.Pages[page_name]
     return {
         'guide': build_guide(page.text()),
-        'images': map(format_image, (i for i in page.images() if 'Flag' not in i.page_title))
+        'images': [format_image(i) for i in page.images() if 'Flag' not in i.page_title]
         }
         
 def format_image(image):

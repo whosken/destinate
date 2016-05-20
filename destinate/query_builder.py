@@ -11,8 +11,7 @@ def build_from_name(city_name):
             }
         }
     
-def build_from_guide(guide, regions=None):
-    summary = nlp.summarize(guide, max_sentence_count=30)
+def build_from_summary(summary, regions=None):
     query = {
         'bool':{
             'must':[{

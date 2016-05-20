@@ -1,6 +1,7 @@
 import storage
 import nomadlist
 import wikivoyage
+import nlp
 
 def build(cities=None):
     index_guides(cities or index_cities())
@@ -18,5 +19,6 @@ def index_guides(cities):
     
 def build_guide(city):
     guide = wikivoyage.find_city(city['name'])
+    guide['summary'] = nlp.summarize(guide['guide'])
     return dict(city.items() + guide.items())
     
