@@ -1,5 +1,3 @@
-import nlp
-
 def build_from_name(city_name):
     return {
         'match':{
