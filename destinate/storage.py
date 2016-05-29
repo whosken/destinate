@@ -2,7 +2,9 @@ import elastic
 import mongo
 
 def upsert_user(user):
-    pass
+    # TODO: map user
+    mongo.client.users.save(user)
+    return True
 
 def upsert_cities(cities, reset=False):
     if reset:
