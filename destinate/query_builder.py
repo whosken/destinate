@@ -9,23 +9,21 @@ def build_from_name(city_name):
             }
         }
     
-def build_from_summary(summary, regions=None):
-    query = {
-        'bool':{
-            'must':[{
-                'match':{
-                    'guide':{
-                        'query':summary,
-                        'cutoff_frequency':0.005
-                        }
+def build_from_guide(guide, regions=None, weather=None, months=None):
+    must = [{
+            'match':{
+                'guide':{
+                    'query':guide,
+                    'cutoff_frequency':0.005
                     }
                 }
-            ]}
-        }
+            }
+        ]
+    should = []
     if regions:
         if isinstance(regions, (unicode,str)):
             regions = [regions]
-        query['bool']['must'].append({
+        must.append({
             'match':{
                 'regions':{
                     'query':regions,
@@ -33,5 +31,12 @@ def build_from_summary(summary, regions=None):
                     }
                 }
             })
+    if weather:
+        should += [{'term':{'weather.{}'.format(k):v}} for k,v in weather.items()]
+    if months:
+        should.append({'terms':{'months_ideal':months}})
+    query = {'bool':{'must':must}}
+    if should:
+        query['bool']['should'] = should
     return query
     
