@@ -1,6 +1,9 @@
 import elastic
 import mongo
 
+def upsert_user(user):
+    pass
+
 def upsert_cities(cities, reset=False):
     if reset:
         elastic.delete_index()
