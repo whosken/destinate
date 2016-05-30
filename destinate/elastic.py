@@ -33,6 +33,7 @@ def create_index(index=None):
 def refresh_index(index=None):
     return client.indices.refresh(index=index or SEARCH_INDEX)
 
+PAGING_OPTIONS = ['fields', 'page', 'count', '_all']
 def search(query=None, index=None, fields=None, page=0, count=10, _all=False):
     try:
         results = client.search(

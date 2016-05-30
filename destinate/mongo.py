@@ -17,4 +17,4 @@ class LazyClient(object):
             self._client = pymongo.MongoClient(MONGO_URI)[db_name]
         return getattr(self._client, name)
     
-client = LazyClient()
+db = LazyClient()

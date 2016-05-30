@@ -1,9 +1,11 @@
 import elastic
 import mongo
 
+from elastic import PAGING_OPTIONS
+
 def upsert_user(user):
-    # TODO: map user
-    mongo.client.users.save(user)
+    user['_id'] = hash(user['facebook_id'])
+    mongo.db.users.save(user)
     return True
 
 def upsert_cities(cities, reset=False):
