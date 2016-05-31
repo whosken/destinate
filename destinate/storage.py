@@ -1,12 +1,22 @@
 import elastic
 import mongo
+import datetimeutc
 
 from elastic import PAGING_OPTIONS
 
 def upsert_user(user):
-    user['_id'] = hash(user['facebook_id'])
-    mongo.db.users.save(user)
+    query = {'_id':hash(user['facebook_id'])}
+    user['last_login'] = datetimeutc.Datetime.now()
+    mongo.db.users.update_one(query,{'$set':user}, upsert=True)
     return True
+    
+def get_user(token, valid_minutes=90, fields=None):
+    then = datetimeutc.Datetime.now() - datetime.timedelta(minutes=valid_minutes)
+    query = {
+        'token':token,
+        'last_login':{'$gte':then}
+        }
+    return mongo.db.users.find_one(query, fields=fields)
 
 def upsert_cities(cities, reset=False):
     if reset:
