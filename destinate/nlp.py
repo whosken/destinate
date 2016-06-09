@@ -11,6 +11,14 @@ def summarize(text, max_sentence_count=20):
     sentence_scores = [(score_sentence(s),s) for s in blob.sentences if len(s.words) > 3]
     return u'\n'.join(unicode(s) for _,s in sorted(sentence_scores, reverse=True)[:max_sentence_count])
     
+def translate(text, to=None):
+    blob = textblob.TextBlob(text)
+    try:
+        blob = blob.translate(to=to or'en')
+    except (textblob.exceptions.TranslatorError, textblob.exceptions.NotTranslated) as error:
+        print error
+    return unicode(blob)
+    
 def mean_shared_words(words_one, words_two):
     shared_words = set(words_one).intersection(words_two)
     similarity = sum(words_one.count(w) + words_two.count(w) for w in shared_words)

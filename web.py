@@ -23,7 +23,10 @@ def authenticate(token):
 @app.route('/logins/',methods=['POST'])
 def login():
     token = flask.request.form['token']
-    user = destinate.profile.find_user(token)
+    try:
+        user = destinate.profile.find_user(token)
+    except ValueError:
+        return flask.abort(400)
     response = flask.make_response(flask.jsonify(user=user))
     response.session[SESSION_TOKEN] = token
     return response
