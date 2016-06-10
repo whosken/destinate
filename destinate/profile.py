@@ -8,7 +8,7 @@ def find_user(token):
     user = facebook.get_user(token)
     user['token'] = token
     user['summary'] = analyze_user(user)
-    #destinate.storage.upsert_user(user)
+    destinate.storage.upsert_user(user)
     return user
     
 def analyze_user(user):
