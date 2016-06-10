@@ -4,11 +4,13 @@ import nlp
 
 import collections
 
+from storage import get_user
+
 def find_user(token):
     user = facebook.get_user(token)
     user['token'] = token
     user['summary'] = analyze_user(user)
-    destinate.storage.upsert_user(user)
+    storage.upsert_user(user)
     return user
     
 def analyze_user(user):
@@ -24,10 +26,5 @@ def analyze_user(user):
         'events':nlp.summarize(u'\n'.join(events), max_sentence_count=5)
         }
 
-def get_user(token):
-    return storage.get_user(token)
-
 def is_valid_token(token, valid_minutes=360):
-    user = storage.get_user(token, valid_minutes, fields={'_id':True})
-    return bool(user)
-    
+    return storage.login_user(token, valid_minutes) is not None

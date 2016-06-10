@@ -13,8 +13,8 @@ class LazyClient(object):
             return self._client
         if not self._client:
             print 'connecting to', HOST
-            db_name = pymongo.uri_parser.parse_uri(MONGO_URI).get('database')
-            self._client = pymongo.MongoClient(MONGO_URI)[db_name]
+            db_name = pymongo.uri_parser.parse_uri(HOST).get('database')
+            self._client = pymongo.MongoClient(HOST)[db_name]
         return getattr(self._client, name)
     
 db = LazyClient()

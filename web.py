@@ -3,15 +3,16 @@ import destinate
 
 import os
 
-SECRET = os.environ.get('SERVER_SECRET')
+SECRET = os.environ.get('SERVER_SECRET') or 'default_secret_key'
 SESSION_TOKEN = 'user-session-token'
 
 app = flask.Flask(__name__)
-# use secret for hashing session headers
+app.secret_key = SECRET
+app.debug=True
 
 def auth(func):
     def auth_and_run(*args, **kwargs):
-        token = flask.request.session.get(SESSION_TOKEN)
+        token = flask.session.get(SESSION_TOKEN)
         if token and authenticate(token):
             return func(*args, **kwargs)
         return flask.abort(403)
@@ -28,14 +29,16 @@ def login():
     except ValueError:
         return flask.abort(400)
     response = flask.make_response(flask.jsonify(user=user))
-    response.session[SESSION_TOKEN] = token
+    flask.session[SESSION_TOKEN] = token
     return response
 
 @app.route('/suggestions/')
 @auth
 def suggest():
+    user = destinate.profile.get_user(flask.session[SESSION_TOKEN])
     cities = destinate.suggest.from_guide(
         user['summary'],
-        months=flask.request.form.get('months')
+        months=flask.request.form.get('months'),
+        ignore_name=user.get('city')
         )
     return flask.jsonify(suggestions=cities)

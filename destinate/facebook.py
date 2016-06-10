@@ -8,6 +8,7 @@ def get_user(token):
         data = get('me', USER_FIELDS, token)
     except requests.exceptions.HTTPError as error:
         if error.response.status_code == 400:
+            print error.response.content
             raise ValueError
         raise
     return map_details(data)

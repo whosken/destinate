@@ -6,7 +6,6 @@ from elastic import PAGING_OPTIONS
 
 def upsert_user(user):
     query = {'_id':hash(user['facebook_id'])}
-    user['last_login'] = datetimeutc.Datetime.now()
     update = {
         '$set':user,
         '$currentDate':{'last_login':True},
@@ -14,16 +13,17 @@ def upsert_user(user):
     mongo.db.users.update_one(query, update, upsert=True)
     return True
     
-def get_user(token, valid_minutes=90, fields=None, update_login=False):
+def login_user(token, valid_minutes=360):
     then = datetimeutc.Datetime.now() - datetime.timedelta(minutes=valid_minutes)
     query = {
         'token':token,
         'last_login':{'$gte':then}
         }
-    if not update_login:
-        return mongo.db.users.find_one(query, fields)
     update = {'currentDate':{'last_login':True}}
-    return mongo.db.users.find_one_and_update(query, update, fields)
+    return mongo.db.users.find_one_and_update(query, update, {'_id':True})
+    
+def get_user(token, fields=None):
+    return mongo.db.users.find_one({'token':token}, fields)
 
 def upsert_cities(cities, reset=False):
     if reset:
