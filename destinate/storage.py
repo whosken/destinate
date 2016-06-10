@@ -13,17 +13,14 @@ def upsert_user(user):
     mongo.db.users.update_one(query, update, upsert=True)
     return True
     
-def login_user(token, valid_minutes=360):
+def get_user(token, valid_minutes=360, fields=None):
+    '''The session token should not be refreshed during auth'''
     then = datetimeutc.Datetime.now() - datetime.timedelta(minutes=valid_minutes)
     query = {
         'token':token,
         'last_login':{'$gte':then}
         }
-    update = {'currentDate':{'last_login':True}}
-    return mongo.db.users.find_one_and_update(query, update, {'_id':True})
-    
-def get_user(token, fields=None):
-    return mongo.db.users.find_one({'token':token}, fields)
+    return mongo.db.users.find_one(query, fields)
 
 def upsert_cities(cities, reset=False):
     if reset:

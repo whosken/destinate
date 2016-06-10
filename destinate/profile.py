@@ -36,4 +36,4 @@ def remove_counter_long_tail(counter):
     return counter
 
 def is_valid_token(token, valid_minutes=360):
-    return storage.login_user(token, valid_minutes) is not None
+    return storage.get_user(token, valid_minutes, {'_id':True}) is not None

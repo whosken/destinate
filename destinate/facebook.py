@@ -4,13 +4,10 @@ HOST = 'https://graph.facebook.com/v2.5'
 USER_FIELDS = 'fields=id,first_name,email,tagged_places{place{name,place_type,place_topics,location{city}}},events{name,description},location'
 
 def get_user(token):
-    try:
-        data = get('me', USER_FIELDS, token)
-    except requests.exceptions.HTTPError as error:
-        if error.response.status_code == 400:
-            print error.response.content
-            raise ValueError
-        raise
+    data = get('me', USER_FIELDS, token)
+    if 'error' in data:
+        print data
+        raise ValueError
     return map_details(data)
 
 def map_details(data):
