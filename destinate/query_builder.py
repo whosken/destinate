@@ -33,7 +33,18 @@ def build_from_guide(guide, regions=None, weather=None, months=None, ignore_cid=
                 }
             })
     if weather:
-        should += [{'term':{'weather.{}'.format(k):v}} for k,v in weather.items()]
+        if 'celsius' in weather.get('temperature',{}):
+            should.append({'range':{'weather.temperature.celsius':{
+                'gte':weather['temperature']['celsius'] - 3,
+                'lte':weather['temperature']['celsius'] + 3
+                }}})
+        if 'humidity' in weather:
+            should.append({'range':{'weather.humidity':{
+                'gte':weather['humidity'] - 0.1,
+                'lte':weather['humidity'] + 0.1
+                }}})
+        if 'pattern' in weather:
+            should.append({'term':{'weather.pattern':weather['pattern']}})
     if months:
         should.append({'terms':{'months_ideal':months}})
     if ignore_cid:
