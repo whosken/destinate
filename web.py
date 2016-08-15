@@ -36,8 +36,19 @@ def login():
 @auth
 def suggest():
     user = destinate.profile.get_user(flask.session[SESSION_TOKEN])
-    cities = destinate.suggest.from_cities(
-        months=flask.request.form.get('months'),
-        ignore_name=user.get('city')
-        *user['summary']['cities'])
+    suggest_by_tags = flask.request.args.get('tags')
+    months=flask.request.values.getlist('months')
+    
+    if suggest_by_tags:
+        cities = destinate.suggest.from_cities(
+            months=months,
+            ignore_name=user.get('city')
+            *user['summary']['cities'])
+    else:
+        guide = user['summary']['events'] + '\n' + u', '.join(user['summary']['topics'])
+        cities = destinate.suggest.from_guide(
+            guide,
+            months=months,
+            ignore_name=user.get('city'))
     return flask.jsonify(suggestions=cities)
+    
