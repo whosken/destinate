@@ -48,4 +48,4 @@ def search(query=None, index=None, fields=None, page=0, count=10, _all=False):
         raise
     total = results['hits'].get('total')
     print 'found', total
-    return (h['_source'] for h in results['hits'].get('hits',[]))
+    return [h['_source'] for h in results['hits'].get('hits',[])]
