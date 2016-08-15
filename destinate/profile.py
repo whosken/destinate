@@ -4,10 +4,15 @@ import nlp
 
 import collections
 
-get_user = storage.get_user # NOTE: for auth
+get_user = storage.get_user_by_token # NOTE: for auth
 
-def find_user(token): # NOTE: offload analyze_user to background?
+def find_user(token, force_analyze=False): # NOTE: offload analyze_user to background?
     user = facebook.get_user(token)
+    if not force_analyze:
+        storaged_user = storage.get_user_by_id(user['facebook_id'])
+        if storaged_user:
+            return storaged_user
+    print 'analyze user', user['email'].encode('utf8')
     user['token'] = token
     user['summary'] = analyze_user(user)
     storage.upsert_user(user)
@@ -37,4 +42,4 @@ def remove_counter_long_tail(counter):
     return counter
 
 def is_valid_token(token, valid_minutes=360):
-    return storage.get_user(token, valid_minutes, {'_id':True}) is not None
+    return storage.get_user_by_token(token, valid_minutes, {'_id':True}) is not None

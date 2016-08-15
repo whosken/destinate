@@ -13,13 +13,16 @@ def upsert_user(user):
     mongo.db.users.update_one(query, update, upsert=True)
     return True
     
-def get_user(token, valid_minutes=360, fields=None):
-    '''The session token should not be refreshed during auth'''
+def get_user_by_id(facebook_id, valid_days=30, fields=None):
+    ''' Require data refresh if it's older than valid_days '''
+    then = datetimeutc.Datetime.now() - datetime.timedelta(days=valid_days)
+    query = {'_id':hash(facebook_id), 'last_login':{'$gte':then}}
+    return mongo.db.users.find_one(query, fields)
+    
+def get_user_by_token(token, valid_minutes=360, fields=None):
+    ''' Invalidate token if it's older than valid_minutes '''
     then = datetimeutc.Datetime.now() - datetime.timedelta(minutes=valid_minutes)
-    query = {
-        'token':token,
-        'last_login':{'$gte':then}
-        }
+    query = {'token':token, 'last_login':{'$gte':then}}
     return mongo.db.users.find_one(query, fields)
 
 def upsert_cities(cities, reset=False):
