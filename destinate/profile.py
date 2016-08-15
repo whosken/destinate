@@ -4,9 +4,9 @@ import nlp
 
 import collections
 
-from storage import get_user
+get_user = storage.get_user # NOTE: for auth
 
-def find_user(token):
+def find_user(token): # NOTE: offload analyze_user to background?
     user = facebook.get_user(token)
     user['token'] = token
     user['summary'] = analyze_user(user)
@@ -28,9 +28,10 @@ def analyze_user(user):
         }
         
 def remove_counter_long_tail(counter):
+    ''' If the counter contains single occurence elements, remove the long tail '''
     try:
         if counter.most_common(1)[0][1] > 1:
-            counter.subtract(list(counter)) # removes the long tail
+            counter.subtract(list(counter))
     except IndexError:
         pass
     return counter
