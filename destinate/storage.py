@@ -27,7 +27,10 @@ def upsert_cities(cities, reset=False):
         elastic.delete_index()
     elastic.create_index()
     actions = map(create_city_upsert, cities)
-    elastic.helpers.bulk(elastic.client, actions)
+    elastic.helpers.bulk(
+        elastic.client,
+        actions,
+        request_timeout=60)
     elastic.refresh_index()
     return True
     
