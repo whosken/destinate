@@ -27,7 +27,7 @@ def analyze_user(user):
     topics = remove_counter_long_tail(topics)
     events = [nlp.translate(e['description']) for e in user.pop('events',[])]
     return {
-        'cities':[c for c,_ in cities.most_common(5)],
+        'cities':[c for c,_ in cities.most_common(10)],
         'topics':list(topics.elements()),
         'events':nlp.summarize(u'\n'.join(events), max_sentence_count=5)
         }
