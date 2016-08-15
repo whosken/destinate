@@ -2,7 +2,7 @@ import pymongo
 
 import os
 
-HOST = os.environ.get('MONGODB_URI') or 'mongodb://localhost:27017'
+HOST = os.environ.get('MONGODB_URI') or 'mongodb://localhost:27017/destinate'
 
 class LazyClient(object):
     def __init__(self):
