@@ -21,7 +21,13 @@ def build_from_guide(guide, regions=None, weathers=None, months=None, ignore_cid
     if regions:
         if isinstance(regions, (unicode,str)):
             regions = [regions]
-        must.append({'terms':{'regions':regions}})
+        must.append({
+            'match':{'regions':{
+                'query':regions,
+                'operator':'or',
+                'fuzziness':'AUTO'
+                }}
+            })
     if weathers:
         if isinstance(weathers, dict):
             weathers = [weathers]
