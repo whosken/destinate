@@ -14,7 +14,6 @@ def upsert_user(user):
     return True
     
 def get_user_by_id(facebook_id, valid_days=30, fields=None):
-    ''' Require data refresh if it's older than valid_days '''
     then = datetimeutc.Datetime.now() - datetime.timedelta(days=valid_days)
     query = {'_id':hash(facebook_id), 'last_login':{'$gte':then}}
     return mongo.db.users.find_one(query, fields)

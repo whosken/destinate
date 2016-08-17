@@ -6,15 +6,15 @@ import collections
 
 get_user = storage.get_user_by_token # NOTE: for auth
 
-def find_user(token, force_analyze=False): # NOTE: offload analyze_user to background?
-    user = facebook.get_user(token)
-    if not force_analyze:
-        storaged_user = storage.get_user_by_id(user['facebook_id'])
-        if storaged_user:
-            return storaged_user
-    print 'analyze user', user['email'].encode('utf8')
+def find_and_analyze_user(token):
+    raw_user = facebook.get_user(token)
+    user = storage.get_user_by_id(
+        user_obj['facebook_id'],
+        valid_days=30) # NOTE: force analysis every 30 days
+    if not user:
+        user = raw_user
+        user['summary'] = analyze_user(user)
     user['token'] = token
-    user['summary'] = analyze_user(user)
     storage.upsert_user(user)
     return user
     
@@ -42,4 +42,7 @@ def remove_counter_long_tail(counter):
     return counter
 
 def is_valid_token(token, valid_minutes=360):
-    return storage.get_user_by_token(token, valid_minutes, {'_id':True}) is not None
+    return storage.get_user_by_token(
+        token,
+        valid_minutes,
+        {'_id':True}) is not None
