@@ -25,7 +25,7 @@ def authenticate(token):
 def login():
     token = flask.request.form['token']
     try:
-        user = destinate.profile.find_user(token)
+        user = destinate.profile.find_and_analyze_user(token)
     except ValueError:
         return flask.abort(400)
     response = flask.make_response(flask.jsonify(user=user))
@@ -36,19 +36,13 @@ def login():
 @auth
 def suggest():
     user = destinate.profile.get_user(flask.session[SESSION_TOKEN])
-    suggest_by_tags = flask.request.args.get('tags')
-    months=flask.request.values.getlist('months')
-    
-    if suggest_by_tags:
-        cities = destinate.suggest.from_cities(
-            months=months,
-            ignore_name=user.get('city')
-            *user['summary']['cities'])
-    else:
-        guide = user['summary']['events'] + '\n' + u', '.join(user['summary']['topics'])
-        cities = destinate.suggest.from_guide(
-            guide,
-            months=months,
-            ignore_name=user.get('city'))
+    months=flask.request.values.getlist('month')
+    regions=flask.request.values.getlist('region')
+
+    guide = user['summary']['events'] + '\n' + u', '.join(user['summary']['topics'])
+    cities = destinate.suggest.from_guide(
+        guide,
+        months=months,
+        ignore_name=user.get('city'))
     return flask.jsonify(suggestions=cities)
     
