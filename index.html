@@ -4,10 +4,10 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Find out where you should start your next adventure.">
+    <meta name="description" content="Receive personalized travel suggestions based on your Facebook history.">
     <meta name="author" content="Ken Hu">
 
-    <title>Destinate: Somewhere you belong</title>
+    <title>Destinate: Where your next adventure starts</title>
 
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.css" rel="stylesheet">
@@ -33,7 +33,7 @@
 
   <section id="subheaderone" class="clearfix">
     <h1>Destinate</h1>
-    <h2>Find out where you should start your next adventure.</h2>
+    <h2>Where your next adventure starts</h2>
     <div class="earth"></div>
      <div class="star1"></div>
      <div class="star2"></div>
@@ -53,9 +53,9 @@
     <div class="container">
       <div class="row">
         <div class="col-md-8 col-md-offset-2 centered">
-          <h3>WELCOME</h3>
+          <h3>About</h3>
           <hr class="aligncenter">
-          <h4>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</h4>
+          <h4>Blah blah blah? Receive personalized travel suggestions based on your Facebook history.</h4>
         </div>
       </div>
     </div><!--/container -->
@@ -63,7 +63,7 @@
 
   <div class="container ptb">
     <div class="row centered">
-      <h3>HOW IT WORKS</h3>
+      <h3>How it works</h3>
       <hr class="aligncenter mb">
       <div class="col-md-4">
         <div class="circle-icon">
@@ -93,12 +93,13 @@
     <div class="container">
       <div class="row">
         <div class="col-md-8 col-md-offset-2 centered">
-          <h3>TAKE A LOOK OF OUR PRODUCT</h3>
+          <h3>Destinations</h3>
           <hr class="aligncenter">
           <h4>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</h4>
+          <div class="fb-login-button" data-max-rows="1" data-size="medium" data-show-faces="true" data-auto-logout-link="false"></div>
         </div>
       </div><!--/row -->
-      <div class="row">
+      <div id="results" class="row">
         <div class="col-md-10 col-md-offset-1">
           <img src="img/browser.png" class="img-responsive aligncenter" alt="">
         </div>
@@ -108,7 +109,7 @@
 
   <div class="container ptb">
     <div class="row">
-      <h3 class="centered mb">IMPORTANT FEATURES</h3>
+      <h3 class="centered mb">Acknowledgements</h3>
       <!-- Feature Item -->
       <div class="col-md-1 centered">
         <div class="circle-icon-sm">
@@ -224,17 +225,15 @@
             <div class="row">
               <div class="col-md-6">
                 <div class="price-icon">
+                  <h5 class="tag">Search Engine</h5>
+                  <h1 class="tag">$9</h1>
                   <h5 class="tag">Per Month</h5>
-                  <h1 class="tag">$7.99</h1>
                 </div>
               </div><!--/col-md-6-->
               <div class="col-md-6 centered">
-                <h4><black>READY FOR US</black></h4>
-                <p>
-                  15 Days Free Trial<br/>
-                  No Credit Card Needed<br/>
-                </p>
-                <p><button href="#" class="btn btn-lg btn-success">TRY US NOW</button></p>
+                <h4><black>Donation</black></h4>
+                <p>Please help me keep this tool running.</p>
+                <p><button href="https://paypal.me/whosbacon/" class="btn btn-lg btn-success">I will help!</button></p>
               </div><!--/col-md-6-->
             </div><!--/row -->
           </div><!--/price-table-->
@@ -247,8 +246,8 @@
   <div id="f">
     <div class="container">
       <div class="row centered">
-        <h5><i class="ion-heart"></i></h5>
-        <h5>Handsomely Crafted by LandingSumo.com</h5>
+        <p>Made with <i class="ion-heart"></i> by <a href="http://www.whosbacon.com">Ken Hu</a>. Copyright © 2016. All Rights Reserved</p>
+        <p>Template by <a href="http://landingsumo.com/" target="_blank">LandingSumo.com</a></p>
       </div>
     </div>
   </div><!--/F -->
@@ -258,5 +257,18 @@
     <script src="js/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/retina-1.1.0.js"></script>
+    
+    <div id="fb-root"></div>
+    <script>(function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.7&appId=1049190151836136";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>
+    
+    <script>
+        
+    </script>
   </body>
 </html>
