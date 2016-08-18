@@ -187,7 +187,7 @@ input {
 }
 
 /* YELLOW SECTION */
-#y {
+.alt-section {
 	padding-top: 80px;
 	padding-bottom: 80px;
 	background: #efede0;
@@ -232,7 +232,7 @@ input {
 }
 
 
-#b {
+.call-to-action {
 	background: url(../img/footer.jpg) no-repeat center top;
 	padding-top: 140px;
 	text-align:center;
@@ -253,7 +253,7 @@ input {
     background-size: cover;
 }
 
-#b .price-table {
+.call-to-action .price-table {
 	background: white;
 	padding-top: 25px;
 	padding-bottom: 25px;
@@ -261,7 +261,7 @@ input {
 	padding-right: 20px;
 }
 
-#b black{
+.call-to-action black{
 	font-weight: 700;
 	color: #5a5a5a
 }
@@ -298,7 +298,7 @@ h5.tag {
 }
 
 /* FOOTER COPYRIGHT */
-#f {
+.footer {
 	padding-top: 25px;
 	padding-bottom: 25px;
 	background: #1e2827;
