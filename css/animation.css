@@ -1,0 +1,2504 @@
+ /*--------------------------------------------------------------------------------------------
+ EARTH ANIMATION
+-------------------------------------------------------------------------------------------- */
+
+   
+    
+#subheaderone .earth{
+   background:url("../img/earth.png") no-repeat;
+   width:250px;
+   height:250px;
+   margin:0 auto;
+   margin-top: 20px; 
+   position: relative;
+   z-index: 10;
+    /*webkit animation*/
+   -webkit-animation-name: earth;
+   -webkit-animation-duration: 60s;
+   -webkit-animation-timing-function: ease-in;
+   -webkit-animation-iteration-count: 1;	
+   -webkit-animation-direction: normal;
+   -webkit-animation-delay: 0;
+   -webkit-animation-play-state: running;
+   -webkit-animation-fill-mode: forwards;
+    /*firefox animation*/
+   -moz-animation-name: earth;
+   -moz-animation-duration: 60s;
+   -moz-animation-timing-function: ease-in;
+   -moz-animation-iteration-count: 1;	
+   -moz-animation-direction: normal;
+   -moz-animation-delay: 0;
+   -moz-animation-play-state: running;
+   -moz-animation-fill-mode: forwards;
+   /*microsoft animation*/
+   -ms-animation-name: earth;
+   -ms-animation-duration: 100s;
+   -ms-animation-timing-function: ease-in;
+   -ms-animation-iteration-count: 1;	
+   -ms-animation-direction: normal;
+   -ms-animation-delay: 0;
+   -ms-animation-play-state: running;
+   -ms-animation-fill-mode: forwards;
+   /*animation*/
+   animation-name: earth;
+   animation-duration: 100s;
+   animation-timing-function: ease-in;
+   animation-iteration-count: 1;	
+   animation-direction: normal;
+   animation-delay: 0;
+   animation-play-state: running;
+   animation-fill-mode: forwards;
+   }
+
+ 
+ 
+/*keyframes*/    
+  @keyframes earth{
+    
+    0% {
+		top: -50px;
+		opacity: 0.75;
+		transform: rotate(0deg);
+		}
+	
+
+	1% {
+		top: 150px;
+		opacity: 1;
+		transform: rotate(45deg);
+	    }
+
+	2% {
+		top: 115px;
+		transform: rotate(0deg);
+	    }
+
+
+	100% {
+		top: 115px;
+		transform: rotate(360deg);
+	     }
+}            
+
+/*webkit keyframes*/    
+  @-webkit-keyframes earth{
+    
+    0% {
+		top: -50px;
+		opacity: 0.75;
+		-webkit-transform: rotate(0deg);
+		}
+	
+
+	1% {
+		top: 150px;
+		opacity: 1;
+		-webkit-transform: rotate(45deg);
+	    }
+
+	2% {
+		top: 115px;
+		-webkit-transform: rotate(0deg);
+	    }
+
+
+	100% {
+		top: 115px;
+		-webkit-transform: rotate(360deg);
+	     }
+}
+
+    
+/*firefox keyframes*/    
+  @-moz-keyframes earth{
+    
+    0% {
+		top: -50px;
+		opacity: 0.75;
+		-moz-transform: rotate(0deg);
+		}
+	
+
+	1% {
+		top: 150px;
+		opacity: 1;
+		-moz-transform: rotate(45deg);
+	    }
+
+	2% {
+		top: 115px;
+		-moz-transform: rotate(0deg);
+	    }
+
+
+	100% {
+		top: 115px;
+		-moz-transform: rotate(360deg);
+	     }
+}     
+/*microsoft keyframes*/    
+  @-ms-keyframes earth{
+    
+    0% {
+		top: -50px;
+		opacity: 0.75;
+		-ms-transform: rotate(0deg);
+		}
+	
+
+	1% {
+		top: 150px;
+		opacity: 1;
+		-ms-transform: rotate(45deg);
+	    }
+
+	2% {
+		top: 115px;
+		-ms-transform: rotate(0deg);
+	    }
+
+
+	100% {
+		top: 115px;
+		-ms-transform: rotate(360deg);
+	     }
+}
+
+
+
+
+
+ /*--------------------------------------------------------------------------------------------
+STARS ANIMATION
+-------------------------------------------------------------------------------------------- */                  
+
+ /*---------------------------------
+STAR 1
+------------------------------------ */ 
+.star1{
+   background:url("../img/animation/star.png")no-repeat center center;
+   width:20px;
+   height:20px;
+   border-radius:20px;
+   position: absolute; 
+   /*webkit animation*/
+   -webkit-animation-name: star1;
+   -webkit-animation-duration: 100s;
+   -webkit-animation-timing-function: linear;
+   -webkit-animation-iteration-count: infinite;	
+   -webkit-animation-direction: normal;
+   -webkit-animation-delay: 0;
+   -webkit-animation-play-state: running;
+   -webkit-animation-fill-mode: forwards;
+    /*firefox animation*/
+   -moz-animation-name: star1;
+   -moz-animation-duration: 100s;
+   -moz-animation-timing-function: linear;
+   -moz-animation-iteration-count: infinite;	
+   -moz-animation-direction: normal;
+   -moz-animation-delay: 0;
+   -moz-animation-play-state: running;
+   -moz-animation-fill-mode: forwards;
+   /*microsoft animation*/
+   -ms-animation-name: star1;
+   -ms-animation-duration: 100s;
+   -ms-animation-timing-function: linear;
+   -ms-animation-iteration-count:infinite ;	
+   -ms-animation-direction: normal;
+   -ms-animation-delay: 0;
+   -ms-animation-play-state: running;
+   -ms-animation-fill-mode: forwards;
+   /*animation*/
+   animation-name: star1;
+   animation-duration: 100s;
+   animation-timing-function: linear;
+   animation-iteration-count: infinite;	
+   animation-direction: normal;
+   animation-delay: 0;
+   animation-play-state: running;
+   animation-fill-mode: forwards;
+   }
+  
+/*keyframes*/    
+  @keyframes star1{
+    
+    0% {
+		opacity: 0;
+		left:5%;
+        top:25%;
+		}
+		
+	1.8% {
+		opacity: 0;
+		transform:scale(1);
+		}
+	
+
+	2% {
+		opacity: 1;
+		transform:scale(2);
+	    }
+
+	3% {
+		opacity: 1;
+		transform: scale(1);
+	    }
+     
+     50% {
+		 left:15%;
+         top:35%;
+	     }
+
+	100% {
+		 left:5%;
+         top:25%;
+	     }
+}            
+
+/*webkit keyframes*/    
+  @-webkit-keyframes star1{
+    
+    0% {
+		opacity: 0;
+		left:5%;
+        top:25%;
+		}
+		
+    1.8% {
+		opacity: 0;
+		-webkit-transform: scale(1);
+		}
+
+	2% {
+	    opacity: 1;
+		-webkit-transform: scale(2);
+	    }
+	    
+	3% {
+	    opacity: 1;
+		-webkit-transform: scale(1);
+	    }    
+
+
+	50% {
+		 left:15%;
+         top:35%;
+	     }
+	     
+   100% {
+         left:5%;
+         top:25%;
+	     }
+}
+
+    
+/*firefox keyframes*/    
+  @-moz-keyframes star1{
+    
+    0% {
+		opacity: 0;
+		left:5%;
+        top:25%;
+		}
+		
+    1.8% {
+		opacity: 0;
+		-moz-transform: scale(1);
+		}
+
+	2% {
+	    opacity: 1;
+		-moz-transform: scale(2);
+	    }
+	    
+	3% {
+	    opacity: 1;
+		-moz-transform: scale(1);
+	    }    
+
+
+	50% {
+		 left:15%;
+         top:35%;
+	     }
+	     
+   100% {
+         left:5%;
+         top:25%;
+	     }
+}
+
+     
+/*microsoft keyframes*/    
+  @-ms-keyframes star1{
+    
+    0% {
+		opacity: 0;
+		left:5%;
+        top:25%;
+		}
+		
+    1.8% {
+		opacity: 0;
+		-ms-transform: scale(1);
+		}
+
+	2% {
+	    opacity: 1;
+		-ms-transform: scale(2);
+	    }
+	    
+	3% {
+	    opacity: 1;
+		-ms-transform: scale(1);
+	    }    
+
+
+	50% {
+		 left:15%;
+         top:35%;
+	     }
+	     
+   100% {
+         left:5%;
+         top:25%;
+	     }
+}
+
+
+ /*---------------------------------
+STAR 2
+------------------------------------ */    
+.star2{
+   background:url("../img/animation/smallstar.png")no-repeat center center;
+   width:10px;
+   height:10px;
+   border-radius:10px;
+   position: absolute; 
+   /*webkit animation*/
+   -webkit-animation-name: star2;
+   -webkit-animation-duration: 100s;
+   -webkit-animation-timing-function: linear;
+   -webkit-animation-iteration-count: infinite;	
+   -webkit-animation-direction: normal;
+   -webkit-animation-delay: 0;
+   -webkit-animation-play-state: running;
+   -webkit-animation-fill-mode: forwards;
+    /*firefox animation*/
+   -moz-animation-name: star2;
+   -moz-animation-duration: 100s;
+   -moz-animation-timing-function: linear;
+   -moz-animation-iteration-count: infinite;	
+   -moz-animation-direction: normal;
+   -moz-animation-delay: 0;
+   -moz-animation-play-state: running;
+   -moz-animation-fill-mode: forwards;
+   /*microsoft animation*/
+   -ms-animation-name: star2;
+   -ms-animation-duration: 100s;
+   -ms-animation-timing-function: linear;
+   -ms-animation-iteration-count:infinite ;	
+   -ms-animation-direction: normal;
+   -ms-animation-delay: 0;
+   -ms-animation-play-state: running;
+   -ms-animation-fill-mode: forwards;
+   /*animation*/
+   animation-name: star2;
+   animation-duration: 100s;
+   animation-timing-function: linear;
+   animation-iteration-count: infinite;	
+   animation-direction: normal;
+   animation-delay: 0;
+   animation-play-state: running;
+   animation-fill-mode: forwards;
+   }
+  
+/*keyframes*/    
+  @keyframes star2{
+    
+    0% {
+		opacity: 0;
+		left:20%;
+        top:30%;
+		}
+		
+	2.3% {
+		opacity: 0;
+		transform:scale(1);
+		}
+	
+
+	2.5% {
+		opacity: 1;
+		transform:scale(2);
+	    }
+
+	3.5% {
+		opacity: 1;
+		transform: scale(1);
+	    }
+     
+     50% {
+		 left:30%;
+         top:35%;
+	     }
+
+	100% {
+		 left:20%;
+         top:30%;
+	     }
+}            
+
+/*webkit keyframes*/    
+  @-webkit-keyframes star2{
+    
+    0% {
+		opacity: 0;
+		left:20%;
+        top:30%;
+		}
+		
+    2.3% {
+		opacity: 0;
+		-webkit-transform: scale(1);
+		}
+
+	2.5% {
+	    opacity: 1;
+		-webkit-transform: scale(2);
+	    }
+	    
+	3.5% {
+	    opacity: 1;
+		-webkit-transform: scale(1);
+	    }    
+
+
+	50% {
+		 left:30%;
+         top:35%;
+	     }
+	     
+   100% {
+         left:20%;
+         top:30%;
+	     }
+}
+
+    
+/*firefox keyframes*/    
+  @-moz-keyframes star2{
+    
+    0% {
+		opacity: 0;
+		left:20%;
+        top:30%;
+		}
+		
+    2.3% {
+		opacity: 0;
+		-moz-transform: scale(1);
+		}
+
+	2.5% {
+	    opacity: 1;
+		-moz-transform: scale(2);
+	    }
+	    
+	3.5% {
+	    opacity: 1;
+		-moz-transform: scale(1);
+	    }    
+
+
+	50% {
+		 left:30%;
+         top:35%;
+	     }
+	     
+   100% {
+         left:20%;
+         top:30%;
+	     }
+}
+
+     
+/*microsoft keyframes*/    
+  @-ms-keyframes star2{
+    
+    0% {
+		opacity: 0;
+		left:20%;
+        top:30%;
+		}
+		
+    2.3% {
+		opacity: 0;
+		-ms-transform: scale(1);
+		}
+
+	2.5% {
+	    opacity: 1;
+		-ms-transform: scale(2);
+	    }
+	    
+	3.5% {
+	    opacity: 1;
+		-ms-transform: scale(1);
+	    }    
+
+
+	50% {
+		 left:30%;
+         top:35%;
+	     }
+	     
+   100% {
+         left:20%;
+         top:30%;
+	     }
+}
+   
+
+ /*---------------------------------
+STAR 3
+------------------------------------ */    
+.star3{
+   background:url("../img/animation/star.png")no-repeat center center;
+   width:20px;
+   height:20px;
+   border-radius:20px;
+   position: absolute; 
+   /*webkit animation*/
+   -webkit-animation-name: star3;
+   -webkit-animation-duration: 100s;
+   -webkit-animation-timing-function: linear;
+   -webkit-animation-iteration-count: infinite;	
+   -webkit-animation-direction: normal;
+   -webkit-animation-delay: 0;
+   -webkit-animation-play-state: running;
+   -webkit-animation-fill-mode: forwards;
+    /*firefox animation*/
+   -moz-animation-name: star3;
+   -moz-animation-duration: 100s;
+   -moz-animation-timing-function: linear;
+   -moz-animation-iteration-count: infinite;	
+   -moz-animation-direction: normal;
+   -moz-animation-delay: 0;
+   -moz-animation-play-state: running;
+   -moz-animation-fill-mode: forwards;
+   /*microsoft animation*/
+   -ms-animation-name: star3;
+   -ms-animation-duration: 100s;
+   -ms-animation-timing-function: linear;
+   -ms-animation-iteration-count:infinite ;	
+   -ms-animation-direction: normal;
+   -ms-animation-delay: 0;
+   -ms-animation-play-state: running;
+   -ms-animation-fill-mode: forwards;
+   /*animation*/
+   animation-name: star3;
+   animation-duration: 100s;
+   animation-timing-function: linear;
+   animation-iteration-count: infinite;	
+   animation-direction: normal;
+   animation-delay: 0;
+   animation-play-state: running;
+   animation-fill-mode: forwards;
+   }
+  
+/*keyframes*/    
+  @keyframes star3{
+    
+    0% {
+		opacity: 0;
+		left:25%;
+        top:25%;
+		}
+		
+	1% {
+		opacity: 0;
+		transform:scale(1);
+		}
+	
+
+	1.5% {
+		opacity: 1;
+		transform:scale(2);
+	    }
+
+	2% {
+		opacity: 1;
+		transform: scale(1);
+	    }
+     
+     50% {
+		 left:35%;
+         top:30%;
+	     }
+
+	100% {
+		 left:25%;
+         top:25%;
+	     }
+}            
+
+/*webkit keyframes*/    
+  @-webkit-keyframes star3{
+    
+    0% {
+		opacity: 0;
+		left:25%;
+        top:25%;
+		}
+		
+    1% {
+		opacity: 0;
+		-webkit-transform: scale(1);
+		}
+
+	1.5% {
+	    opacity: 1;
+		-webkit-transform: scale(2);
+	    }
+	    
+	2% {
+	    opacity: 1;
+		-webkit-transform: scale(1);
+	    }    
+
+
+	50% {
+		 left:35%;
+         top:30%;
+	     }
+	     
+   100% {
+         left:25%;
+         top:25%;
+	     }
+}
+
+    
+/*firefox keyframes*/    
+  @-moz-keyframes star3{
+    
+    0% {
+		opacity: 0;
+		left:25%;
+        top:25%;
+		}
+		
+    1% {
+		opacity: 0;
+		-moz-transform: scale(1);
+		}
+
+	1.5% {
+	    opacity: 1;
+		-moz-transform: scale(2);
+	    }
+	    
+	2% {
+	    opacity: 1;
+		-moz-transform: scale(1);
+	    }    
+
+
+	50% {
+		 left:35%;
+         top:30%;
+	     }
+	     
+   100% {
+         left:25%;
+         top:25%;
+	     }
+}
+
+     
+/*microsoft keyframes*/    
+  @-ms-keyframes star3{
+    
+    0% {
+		opacity: 0;
+		left:25%;
+        top:25%;
+		}
+		
+    1% {
+		opacity: 0;
+		-ms-transform: scale(1);
+		}
+
+	1.5% {
+	    opacity: 1;
+		-ms-transform: scale(2);
+	    }
+	    
+	2% {
+	    opacity: 1;
+		-ms-transform: scale(1);
+	    }    
+
+
+	50% {
+		 left:35%;
+         top:30%;
+	     }
+	     
+   100% {
+         left:25%;
+         top:25%;
+	     }
+}   
+
+ /*---------------------------------
+STAR 4
+------------------------------------ */    
+.star4{
+   background:url("../img/animation/smallstar.png")no-repeat center center;
+   width:10px;
+   height:10px;
+   border-radius:10px;
+   position: absolute; 
+   /*webkit animation*/
+   -webkit-animation-name: star4;
+   -webkit-animation-duration: 100s;
+   -webkit-animation-timing-function: linear;
+   -webkit-animation-iteration-count: infinite;	
+   -webkit-animation-direction: normal;
+   -webkit-animation-delay: 0;
+   -webkit-animation-play-state: running;
+   -webkit-animation-fill-mode: forwards;
+    /*firefox animation*/
+   -moz-animation-name: star4;
+   -moz-animation-duration: 100s;
+   -moz-animation-timing-function: linear;
+   -moz-animation-iteration-count: infinite;	
+   -moz-animation-direction: normal;
+   -moz-animation-delay: 0;
+   -moz-animation-play-state: running;
+   -moz-animation-fill-mode: forwards;
+   /*microsoft animation*/
+   -ms-animation-name: star4;
+   -ms-animation-duration: 100s;
+   -ms-animation-timing-function: linear;
+   -ms-animation-iteration-count:infinite ;	
+   -ms-animation-direction: normal;
+   -ms-animation-delay: 0;
+   -ms-animation-play-state: running;
+   -ms-animation-fill-mode: forwards;
+   /*animation*/
+   animation-name: star4;
+   animation-duration: 100s;
+   animation-timing-function: linear;
+   animation-iteration-count: infinite;	
+   animation-direction: normal;
+   animation-delay: 0;
+   animation-play-state: running;
+   animation-fill-mode: forwards;
+   }
+  
+/*keyframes*/    
+  @keyframes star4{
+    
+    0% {
+		opacity: 0;
+		left:5%;
+        bottom:40%; 
+		}
+		
+	3% {
+		opacity: 0;
+		transform:scale(1);
+		}
+	
+
+	3.5% {
+		opacity: 1;
+		transform:scale(2);
+	    }
+
+	4% {
+		opacity: 1;
+		transform: scale(1);
+	    }
+     
+     50% {
+		 left:20%;
+         bottom:50%;
+	     }
+
+	100% {
+		 left:5%;
+         bottom:40%;
+	     }
+}            
+
+/*webkit keyframes*/    
+  @-webkit-keyframes star4{
+    
+    0% {
+		opacity: 0;
+		left:5%;
+        bottom:40%;
+		}
+		
+    3% {
+		opacity: 0;
+		-webkit-transform: scale(1);
+		}
+
+	3.5% {
+	    opacity: 1;
+		-webkit-transform: scale(2);
+	    }
+	    
+	4% {
+	    opacity: 1;
+		-webkit-transform: scale(1);
+	    }    
+
+
+	50% {
+		 left:20%;
+         bottom:50%;
+	     }
+	     
+   100% {
+         left:5%;
+         bottom:40%; 
+	     }
+}
+
+    
+/*firefox keyframes*/    
+  @-moz-keyframes star4{
+    
+    0% {
+		opacity: 0;
+		left:5%;
+        bottom:40%;
+		}
+		
+    3% {
+		opacity: 0;
+		-moz-transform: scale(1);
+		}
+
+	3.5% {
+	    opacity: 1;
+		-moz-transform: scale(2);
+	    }
+	    
+	4% {
+	    opacity: 1;
+		-moz-transform: scale(1);
+	    }    
+
+
+	50% {
+		 left:20%;
+         bottom:50%;
+	     }
+	     
+   100% {
+         left:5%;
+         bottom:40%;
+	     }
+}
+
+     
+/*microsoft keyframes*/    
+  @-ms-keyframes star4{
+    
+    0% {
+		opacity: 0;
+		left:5%;
+        bottom:40%;
+		}
+		
+    3% {
+		opacity: 0;
+		-ms-transform: scale(1);
+		}
+
+	3.5% {
+	    opacity: 1;
+		-ms-transform: scale(2);
+	    }
+	    
+	4% {
+	    opacity: 1;
+		-ms-transform: scale(1);
+	    }    
+
+
+	50% {
+		 left:20%;
+         bottom:50%;
+	     }
+	     
+   100% {
+         left:5%;
+         bottom:40%;
+	     }
+}   
+
+ /*---------------------------------
+STAR 5
+------------------------------------ */ 
+.star5{
+   background:url("../img/animation/star.png")no-repeat center center;
+   width:20px;
+   height:20px;
+   border-radius:20px;
+   position: absolute; 
+   /*webkit animation*/
+   -webkit-animation-name: star5;
+   -webkit-animation-duration: 100s;
+   -webkit-animation-timing-function: linear;
+   -webkit-animation-iteration-count: infinite;	
+   -webkit-animation-direction: normal;
+   -webkit-animation-delay: 0;
+   -webkit-animation-play-state: running;
+   -webkit-animation-fill-mode: forwards;
+    /*firefox animation*/
+   -moz-animation-name: star5;
+   -moz-animation-duration: 100s;
+   -moz-animation-timing-function: linear;
+   -moz-animation-iteration-count: infinite;	
+   -moz-animation-direction: normal;
+   -moz-animation-delay: 0;
+   -moz-animation-play-state: running;
+   -moz-animation-fill-mode: forwards;
+   /*microsoft animation*/
+   -ms-animation-name: star5;
+   -ms-animation-duration: 100s;
+   -ms-animation-timing-function: linear;
+   -ms-animation-iteration-count:infinite ;	
+   -ms-animation-direction: normal;
+   -ms-animation-delay: 0;
+   -ms-animation-play-state: running;
+   -ms-animation-fill-mode: forwards;
+   /*animation*/
+   animation-name: star5;
+   animation-duration: 100s;
+   animation-timing-function: linear;
+   animation-iteration-count: infinite;	
+   animation-direction: normal;
+   animation-delay: 0;
+   animation-play-state: running;
+   animation-fill-mode: forwards;
+   }
+  
+/*keyframes*/    
+  @keyframes star5{
+    
+    0% {
+		opacity: 0;
+		left:15%;
+        bottom:20%;
+		}
+		
+	2.5% {
+		opacity: 0;
+		transform:scale(1);
+		}
+	
+
+	3% {
+		opacity: 1;
+		transform:scale(2);
+	    }
+
+	3.5% {
+		opacity: 1;
+		transform: scale(1);
+	    }
+     
+     50% {
+		 left:25%;
+         bottom:30%;
+	     }
+
+	100% {
+		 left:15%;
+         bottom:20%;
+	     }
+}            
+
+/*webkit keyframes*/    
+  @-webkit-keyframes star5{
+    
+    0% {
+		opacity: 0;
+		left:15%;
+        bottom:20%;
+		}
+		
+    2.5% {
+		opacity: 0;
+		-webkit-transform: scale(1);
+		}
+
+	3% {
+	    opacity: 1;
+		-webkit-transform: scale(2);
+	    }
+	    
+	3.5% {
+	    opacity: 1;
+		-webkit-transform: scale(1);
+	    }    
+
+
+	50% {
+		 left:25%;
+         bottom:30%;
+	     }
+	     
+   100% {
+         left:15%;
+         bottom:20%;
+	     }
+}
+
+    
+/*firefox keyframes*/    
+  @-moz-keyframes star5{
+    
+    0% {
+		opacity: 0;
+		left:15%;
+        bottom:20%;
+		}
+		
+    2.5% {
+		opacity: 0;
+		-moz-transform: scale(1);
+		}
+
+	3% {
+	    opacity: 1;
+		-moz-transform: scale(2);
+	    }
+	    
+	3.5% {
+	    opacity: 1;
+		-moz-transform: scale(1);
+	    }    
+
+
+	50% {
+		 left:25%;
+         bottom:30%;
+	     }
+	     
+   100% {
+         left:15%;
+         bottom:20%;
+	     }
+}
+
+     
+/*microsoft keyframes*/    
+  @-ms-keyframes star5{
+    
+    0% {
+		opacity: 0;
+		left:15%;
+        bottom:20%;
+		}
+		
+    2.5% {
+		opacity: 0;
+		-ms-transform: scale(1);
+		}
+
+	3% {
+	    opacity: 1;
+		-ms-transform: scale(2);
+	    }
+	    
+	3.5% {
+	    opacity: 1;
+		-ms-transform: scale(1);
+	    }    
+
+
+	50% {
+		 left:25%;
+         bottom:30%;
+	     }
+	     
+   100% {
+         left:15%;
+         bottom:20%;
+	     }
+}
+   
+
+ /*---------------------------------
+STAR 6
+------------------------------------ */    
+.star6{
+   background:url("../img/animation/smallstar.png")no-repeat center center;
+   width:10px;
+   height:10px;
+   border-radius:10px;
+   position: absolute; 
+   /*webkit animation*/
+   -webkit-animation-name: star6;
+   -webkit-animation-duration: 100s;
+   -webkit-animation-timing-function: linear;
+   -webkit-animation-iteration-count: infinite;	
+   -webkit-animation-direction: normal;
+   -webkit-animation-delay: 0;
+   -webkit-animation-play-state: running;
+   -webkit-animation-fill-mode: forwards;
+    /*firefox animation*/
+   -moz-animation-name: star6;
+   -moz-animation-duration: 100s;
+   -moz-animation-timing-function: linear;
+   -moz-animation-iteration-count: infinite;	
+   -moz-animation-direction: normal;
+   -moz-animation-delay: 0;
+   -moz-animation-play-state: running;
+   -moz-animation-fill-mode: forwards;
+   /*microsoft animation*/
+   -ms-animation-name: star6;
+   -ms-animation-duration: 100s;
+   -ms-animation-timing-function: linear;
+   -ms-animation-iteration-count:infinite ;	
+   -ms-animation-direction: normal;
+   -ms-animation-delay: 0;
+   -ms-animation-play-state: running;
+   -ms-animation-fill-mode: forwards;
+   /*animation*/
+   animation-name: star6;
+   animation-duration: 100s;
+   animation-timing-function: linear;
+   animation-iteration-count: infinite;	
+   animation-direction: normal;
+   animation-delay: 0;
+   animation-play-state: running;
+   animation-fill-mode: forwards;
+   }
+  
+/*keyframes*/    
+  @keyframes star6{
+    
+    0% {
+		opacity: 0;
+		left:30%;
+        bottom:30%;
+		}
+		
+	1% {
+		opacity: 0;
+		transform:scale(1);
+		}
+	
+
+	1.5% {
+		opacity: 1;
+		transform:scale(2);
+	    }
+
+	2% {
+		opacity: 1;
+		transform: scale(1);
+	    }
+     
+     50% {
+		 left:35%;
+         bottom:40%;
+	     }
+
+	100% {
+		 left:30%;
+         bottom:30%;
+	     }
+}            
+
+/*webkit keyframes*/    
+  @-webkit-keyframes star6{
+    
+    0% {
+		opacity: 0;
+		left:30%;
+        bottom:30%;
+		}
+		
+    1% {
+		opacity: 0;
+		-webkit-transform: scale(1);
+		}
+
+	1.5% {
+	    opacity: 1;
+		-webkit-transform: scale(2);
+	    }
+	    
+	2% {
+	    opacity: 1;
+		-webkit-transform: scale(1);
+	    }    
+
+
+	50% {
+		 left:35%;
+         bottom:40%;
+	     }
+	     
+   100% {
+         left:30%;
+         bottom:30%;
+	     }
+}
+
+    
+/*firefox keyframes*/    
+  @-moz-keyframes star6{
+    
+    0% {
+		opacity: 0;
+		left:30%;
+        bottom:30%;
+		}
+		
+    1% {
+		opacity: 0;
+		-moz-transform: scale(1);
+		}
+
+	1.5% {
+	    opacity: 1;
+		-moz-transform: scale(2);
+	    }
+	    
+	2% {
+	    opacity: 1;
+		-moz-transform: scale(1);
+	    }    
+
+
+	50% {
+		 left:35%;
+         bottom:40%;
+	     }
+	     
+   100% {
+         left:30%;
+         bottom:30%;
+	     }
+}
+
+     
+/*microsoft keyframes*/    
+  @-ms-keyframes star6{
+    
+    0% {
+		opacity: 0;
+		left:30%;
+        bottom:30%;
+		}
+		
+    1% {
+		opacity: 0;
+		-ms-transform: scale(1);
+		}
+
+	1.5% {
+	    opacity: 1;
+		-ms-transform: scale(2);
+	    }
+	    
+	2% {
+	    opacity: 1;
+		-ms-transform: scale(1);
+	    }    
+
+
+	50% {
+		 left:35%;
+         bottom:40%;
+	     }
+	     
+   100% {
+         left:30%;
+         bottom:30%;
+	     }
+}
+   
+
+ /*---------------------------------
+STAR 7
+------------------------------------ */    
+.star7{
+   background:url("../img/animation/star.png")no-repeat center center;
+   width:20px;
+   height:20px;
+   border-radius:20px;
+   position: absolute; 
+   /*webkit animation*/
+   -webkit-animation-name: star7;
+   -webkit-animation-duration: 100s;
+   -webkit-animation-timing-function: linear;
+   -webkit-animation-iteration-count: infinite;	
+   -webkit-animation-direction: normal;
+   -webkit-animation-delay: 0;
+   -webkit-animation-play-state: running;
+   -webkit-animation-fill-mode: forwards;
+    /*firefox animation*/
+   -moz-animation-name: star7;
+   -moz-animation-duration: 100s;
+   -moz-animation-timing-function: linear;
+   -moz-animation-iteration-count: infinite;	
+   -moz-animation-direction: normal;
+   -moz-animation-delay: 0;
+   -moz-animation-play-state: running;
+   -moz-animation-fill-mode: forwards;
+   /*microsoft animation*/
+   -ms-animation-name: star7;
+   -ms-animation-duration: 100s;
+   -ms-animation-timing-function: linear;
+   -ms-animation-iteration-count:infinite ;	
+   -ms-animation-direction: normal;
+   -ms-animation-delay: 0;
+   -ms-animation-play-state: running;
+   -ms-animation-fill-mode: forwards;
+   /*animation*/
+   animation-name: star7;
+   animation-duration: 100s;
+   animation-timing-function: linear;
+   animation-iteration-count: infinite;	
+   animation-direction: normal;
+   animation-delay: 0;
+   animation-play-state: running;
+   animation-fill-mode: forwards;
+   }
+  
+/*keyframes*/    
+  @keyframes star7{
+    
+    0% {
+		opacity: 0;
+		right:13%;
+        top:15%;
+		}
+		
+	1% {
+		opacity: 0;
+		transform:scale(1);
+		}
+	
+
+	1.5% {
+		opacity: 1;
+		transform:scale(2);
+	    }
+
+	2% {
+		opacity: 1;
+		transform: scale(1);
+	    }
+     
+     50% {
+		 right:5%;
+         top:10%;
+	     }
+
+	100% {
+		 right:13%;
+         top:15%;
+	     }
+}            
+
+/*webkit keyframes*/    
+  @-webkit-keyframes star7{
+    
+    0% {
+		opacity: 0;
+		right:13%;
+        top:15%;
+		}
+		
+    1% {
+		opacity: 0;
+		-webkit-transform: scale(1);
+		}
+
+	1.5% {
+	    opacity: 1;
+		-webkit-transform: scale(2);
+	    }
+	    
+	2% {
+	    opacity: 1;
+		-webkit-transform: scale(1);
+	    }    
+
+
+	50% {
+		 right:5%;
+         top:10%;
+	     }
+	     
+   100% {
+         right:13%;
+         top:15%;
+	     }
+}
+
+    
+/*firefox keyframes*/    
+  @-moz-keyframes star7{
+    
+    0% {
+		opacity: 0;
+		right:13%;
+        top:15%;
+		}
+		
+    1% {
+		opacity: 0;
+		-moz-transform: scale(1);
+		}
+
+	1.5% {
+	    opacity: 1;
+		-moz-transform: scale(2);
+	    }
+	    
+	2% {
+	    opacity: 1;
+		-moz-transform: scale(1);
+	    }    
+
+
+	50% {
+		 right:5%;
+         top:10%;
+	     }
+	     
+   100% {
+         right:13%;
+         top:15%;
+	     }
+}
+
+     
+/*microsoft keyframes*/    
+  @-ms-keyframes star7{
+    
+    0% {
+		opacity: 0;
+		right:13%;
+        top:15%;
+		}
+		
+    1% {
+		opacity: 0;
+		-ms-transform: scale(1);
+		}
+
+	1.5% {
+	    opacity: 1;
+		-ms-transform: scale(2);
+	    }
+	    
+	2% {
+	    opacity: 1;
+		-ms-transform: scale(1);
+	    }    
+
+
+	50% {
+		 right:5%;
+         top:10%;
+	     }
+	     
+   100% {
+         right:13%;
+         top:15%;
+	     }
+}    
+
+ /*---------------------------------
+STAR 8
+------------------------------------ */ 
+   
+.star8{
+   background:url("../img/animation/smallstar.png")no-repeat center center;
+   width:10px;
+   height:10px;
+   border-radius:10px;
+   position: absolute; 
+   /*webkit animation*/
+   -webkit-animation-name: star8;
+   -webkit-animation-duration: 100s;
+   -webkit-animation-timing-function: linear;
+   -webkit-animation-iteration-count: infinite;	
+   -webkit-animation-direction: normal;
+   -webkit-animation-delay: 0;
+   -webkit-animation-play-state: running;
+   -webkit-animation-fill-mode: forwards;
+    /*firefox animation*/
+   -moz-animation-name: star8;
+   -moz-animation-duration: 100s;
+   -moz-animation-timing-function: linear;
+   -moz-animation-iteration-count: infinite;	
+   -moz-animation-direction: normal;
+   -moz-animation-delay: 0;
+   -moz-animation-play-state: running;
+   -moz-animation-fill-mode: forwards;
+   /*microsoft animation*/
+   -ms-animation-name: star8;
+   -ms-animation-duration: 100s;
+   -ms-animation-timing-function: linear;
+   -ms-animation-iteration-count:infinite ;	
+   -ms-animation-direction: normal;
+   -ms-animation-delay: 0;
+   -ms-animation-play-state: running;
+   -ms-animation-fill-mode: forwards;
+   /*animation*/
+   animation-name: star8;
+   animation-duration: 100s;
+   animation-timing-function: linear;
+   animation-iteration-count: infinite;	
+   animation-direction: normal;
+   animation-delay: 0;
+   animation-play-state: running;
+   animation-fill-mode: forwards;
+   }
+  
+/*keyframes*/    
+  @keyframes star8{
+    
+    0% {
+		opacity: 0;
+		right:20%;
+        top:20%;
+		}
+		
+	1% {
+		opacity: 0;
+		transform:scale(1);
+		}
+	
+
+	1.5% {
+		opacity: 1;
+		transform:scale(2);
+	    }
+
+	2% {
+		opacity: 1;
+		transform: scale(1);
+	    }
+     
+     50% {
+		 right:10%;
+         top:30%;
+	     }
+
+	100% {
+		 right:20%;
+         top:20%;
+	     }
+}            
+
+/*webkit keyframes*/    
+  @-webkit-keyframes star8{
+    
+    0% {
+		opacity: 0;
+		right:20%;
+        top:20%;
+		}
+		
+    1% {
+		opacity: 0;
+		-webkit-transform: scale(1);
+		}
+
+	1.5% {
+	    opacity: 1;
+		-webkit-transform: scale(2);
+	    }
+	    
+	2% {
+	    opacity: 1;
+		-webkit-transform: scale(1);
+	    }    
+
+
+	50% {
+		 right:10%;
+         top:30%;
+	     }
+	     
+   100% {
+         right:20%;
+         top:20%;
+	     }
+}
+
+    
+/*firefox keyframes*/    
+  @-moz-keyframes star8{
+    
+    0% {
+		opacity: 0;
+		right:25%;
+        bottom:20%;
+		}
+		
+    1% {
+		opacity: 0;
+		-moz-transform: scale(1);
+		}
+
+	1.5% {
+	    opacity: 1;
+		-moz-transform: scale(2);
+	    }
+	    
+	2% {
+	    opacity: 1;
+		-moz-transform: scale(1);
+	    }    
+
+
+	50% {
+		 right:15%;
+         bottom:25%;
+	     }
+	     
+   100% {
+         right:25%;
+         bottom:20%;
+	     }
+}
+
+     
+/*microsoft keyframes*/    
+  @-ms-keyframes star8{
+    
+    0% {
+		opacity: 0;
+		right:25%;
+        bottom:20%;
+		}
+		
+    1% {
+		opacity: 0;
+		-ms-transform: scale(1);
+		}
+
+	1.5% {
+	    opacity: 1;
+		-ms-transform: scale(2);
+	    }
+	    
+	2% {
+	    opacity: 1;
+		-ms-transform: scale(1);
+	    }    
+
+
+	50% {
+		 right:15%;
+         bottom:25%;
+	     }
+	     
+   100% {
+         right:25%;
+         bottom:20%;
+	     }
+}
+   
+
+ /*---------------------------------
+STAR 9
+------------------------------------ */    
+.star9{
+   background:url("../img/animation/star.png")no-repeat center center;
+   width:20px;
+   height:20px;
+   border-radius:20px;
+   position: absolute; 
+   /*webkit animation*/
+   -webkit-animation-name: star9;
+   -webkit-animation-duration: 100s;
+   -webkit-animation-timing-function: linear;
+   -webkit-animation-iteration-count: infinite;	
+   -webkit-animation-direction: normal;
+   -webkit-animation-delay: 0;
+   -webkit-animation-play-state: running;
+   -webkit-animation-fill-mode: forwards;
+    /*firefox animation*/
+   -moz-animation-name: star9;
+   -moz-animation-duration: 100s;
+   -moz-animation-timing-function: linear;
+   -moz-animation-iteration-count: infinite;	
+   -moz-animation-direction: normal;
+   -moz-animation-delay: 0;
+   -moz-animation-play-state: running;
+   -moz-animation-fill-mode: forwards;
+   /*microsoft animation*/
+   -ms-animation-name: star9;
+   -ms-animation-duration: 100s;
+   -ms-animation-timing-function: linear;
+   -ms-animation-iteration-count:infinite ;	
+   -ms-animation-direction: normal;
+   -ms-animation-delay: 0;
+   -ms-animation-play-state: running;
+   -ms-animation-fill-mode: forwards;
+   /*animation*/
+   animation-name: star9;
+   animation-duration: 100s;
+   animation-timing-function: linear;
+   animation-iteration-count: infinite;	
+   animation-direction: normal;
+   animation-delay: 0;
+   animation-play-state: running;
+   animation-fill-mode: forwards;
+   }
+  
+/*keyframes*/    
+  @keyframes star9{
+    
+    0% {
+		opacity: 0;
+		right:30%;
+        top:30%;
+		}
+		
+	2.5% {
+		opacity: 0;
+		transform:scale(1);
+		}
+	
+
+	3% {
+		opacity: 1;
+		transform:scale(2);
+	    }
+
+	3.5% {
+		opacity: 1;
+		transform: scale(1);
+	    }
+     
+     50% {
+		 right:20%;
+         top:40%;
+	     }
+
+	100% {
+		 right:30%;
+         top:30%;
+	     }
+}            
+
+/*webkit keyframes*/    
+  @-webkit-keyframes star9{
+    
+    0% {
+		opacity: 0;
+		right:30%;
+        top:30%;
+		}
+		
+    2.5% {
+		opacity: 0;
+		-webkit-transform: scale(1);
+		}
+
+	3% {
+	    opacity: 1;
+		-webkit-transform: scale(2);
+	    }
+	    
+	3.5% {
+	    opacity: 1;
+		-webkit-transform: scale(1);
+	    }    
+
+
+	50% {
+		 right:20%;
+         top:40%;
+	     }
+	     
+   100% {
+         right:30%;
+         top:30%;
+	     }
+}
+
+    
+/*firefox keyframes*/    
+  @-moz-keyframes star9{
+    
+    0% {
+		opacity: 0;
+		right:30%;
+        top:30%;
+		}
+		
+    2.5% {
+		opacity: 0;
+		-moz-transform: scale(1);
+		}
+
+	3% {
+	    opacity: 1;
+		-moz-transform: scale(2);
+	    }
+	    
+	3.5% {
+	    opacity: 1;
+		-moz-transform: scale(1);
+	    }    
+
+
+	50% {
+		 right:20%;
+         top:40%;
+	     }
+	     
+   100% {
+         right:30%;
+         top:30%;
+	     }
+}
+
+     
+/*microsoft keyframes*/    
+  @-ms-keyframes star9{
+    
+    0% {
+		opacity: 0;
+		right:30%;
+        top:30%;
+		}
+		
+    2.5% {
+		opacity: 0;
+		-ms-transform: scale(1);
+		}
+
+	3% {
+	    opacity: 1;
+		-ms-transform: scale(2);
+	    }
+	    
+	3.5% {
+	    opacity: 1;
+		-ms-transform: scale(1);
+	    }    
+
+
+	50% {
+		 right:20%;
+         top:40%;
+	     }
+	     
+   100% {
+         right:30%;
+         top:30%;
+	     }
+}
+
+   
+ /*---------------------------------
+STAR 10
+------------------------------------ */   
+.star10{
+   background:url("../img/animation/smallstar.png")no-repeat center center;
+   width:10px;
+   height:10px;
+   border-radius:10px;
+   position: absolute; 
+   /*webkit animation*/
+   -webkit-animation-name: star10;
+   -webkit-animation-duration: 100s;
+   -webkit-animation-timing-function: linear;
+   -webkit-animation-iteration-count: infinite;	
+   -webkit-animation-direction: normal;
+   -webkit-animation-delay: 0;
+   -webkit-animation-play-state: running;
+   -webkit-animation-fill-mode: forwards;
+    /*firefox animation*/
+   -moz-animation-name: star10;
+   -moz-animation-duration: 100s;
+   -moz-animation-timing-function: linear;
+   -moz-animation-iteration-count: infinite;	
+   -moz-animation-direction: normal;
+   -moz-animation-delay: 0;
+   -moz-animation-play-state: running;
+   -moz-animation-fill-mode: forwards;
+   /*microsoft animation*/
+   -ms-animation-name: star10;
+   -ms-animation-duration: 100s;
+   -ms-animation-timing-function: linear;
+   -ms-animation-iteration-count:infinite ;	
+   -ms-animation-direction: normal;
+   -ms-animation-delay: 0;
+   -ms-animation-play-state: running;
+   -ms-animation-fill-mode: forwards;
+   /*animation*/
+   animation-name: star10;
+   animation-duration: 100s;
+   animation-timing-function: linear;
+   animation-iteration-count: infinite;	
+   animation-direction: normal;
+   animation-delay: 0;
+   animation-play-state: running;
+   animation-fill-mode: forwards;
+   }
+  
+/*keyframes*/    
+  @keyframes star10{
+    
+    0% {
+		opacity: 0;
+		right:5%;
+        bottom:40%;
+		}
+		
+	2.3% {
+		opacity: 0;
+		transform:scale(1);
+		}
+	
+
+	2.5% {
+		opacity: 1;
+		transform:scale(2);
+	    }
+
+	3.5% {
+		opacity: 1;
+		transform: scale(1);
+	    }
+     
+     50% {
+		 right:3%;
+         bottom:55%;
+	     }
+
+	100% {
+		 right:5%;
+         bottom:40%;
+	     }
+}            
+
+/*webkit keyframes*/    
+  @-webkit-keyframes star10{
+    
+    0% {
+		opacity: 0;
+		right:5%;
+        bottom:40%;
+		}
+		
+    2.3% {
+		opacity: 0;
+		-webkit-transform: scale(1);
+		}
+
+	2.5% {
+	    opacity: 1;
+		-webkit-transform: scale(2);
+	    }
+	    
+	3.5% {
+	    opacity: 1;
+		-webkit-transform: scale(1);
+	    }    
+
+
+	50% {
+		 right:3%;
+         bottom:55%;
+	     }
+	     
+   100% {
+         right:5%;
+         bottom:40%;
+	     }
+}
+
+    
+/*firefox keyframes*/    
+  @-moz-keyframes star10{
+    
+    0% {
+		opacity: 0;
+		right:5%;
+        bottom:40%;
+		}
+		
+    2.3% {
+		opacity: 0;
+		-moz-transform: scale(1);
+		}
+
+	2.5% {
+	    opacity: 1;
+		-moz-transform: scale(2);
+	    }
+	    
+	3.5% {
+	    opacity: 1;
+		-moz-transform: scale(1);
+	    }    
+
+
+	50% {
+		 right:3%;
+         bottom:55%;
+	     }
+	     
+   100% {
+         right:5%;
+         bottom:40%;
+	     }
+}
+
+     
+/*microsoft keyframes*/    
+  @-ms-keyframes star10{
+    
+    0% {
+		opacity: 0;
+		right:5%;
+        bottom:40%;
+		}
+		
+    2.3% {
+		opacity: 0;
+		-ms-transform: scale(1);
+		}
+
+	2.5% {
+	    opacity: 1;
+		-ms-transform: scale(2);
+	    }
+	    
+	3.5% {
+	    opacity: 1;
+		-ms-transform: scale(1);
+	    }    
+
+
+	50% {
+		 right:3%;
+         bottom:55%;
+	     }
+	     
+   100% {
+         right:5%;
+         bottom:40%;
+	     }
+}   
+
+ /*---------------------------------
+STAR 11
+------------------------------------ */ 
+   
+
+.star11{
+   background:url("../img/animation/star.png")no-repeat center center;
+   width:20px;
+   height:20px;
+   border-radius:20px;
+   position: absolute; 
+   /*webkit animation*/
+   -webkit-animation-name: star11;
+   -webkit-animation-duration: 100s;
+   -webkit-animation-timing-function: linear;
+   -webkit-animation-iteration-count: infinite;	
+   -webkit-animation-direction: normal;
+   -webkit-animation-delay: 0;
+   -webkit-animation-play-state: running;
+   -webkit-animation-fill-mode: forwards;
+    /*firefox animation*/
+   -moz-animation-name: star11;
+   -moz-animation-duration: 100s;
+   -moz-animation-timing-function: linear;
+   -moz-animation-iteration-count: infinite;	
+   -moz-animation-direction: normal;
+   -moz-animation-delay: 0;
+   -moz-animation-play-state: running;
+   -moz-animation-fill-mode: forwards;
+   /*microsoft animation*/
+   -ms-animation-name: star11;
+   -ms-animation-duration: 100s;
+   -ms-animation-timing-function: linear;
+   -ms-animation-iteration-count:infinite ;	
+   -ms-animation-direction: normal;
+   -ms-animation-delay: 0;
+   -ms-animation-play-state: running;
+   -ms-animation-fill-mode: forwards;
+   /*animation*/
+   animation-name: star11;
+   animation-duration: 100s;
+   animation-timing-function: linear;
+   animation-iteration-count: infinite;	
+   animation-direction: normal;
+   animation-delay: 0;
+   animation-play-state: running;
+   animation-fill-mode: forwards;
+   }
+  
+/*keyframes*/    
+  @keyframes star11{
+    
+    0% {
+		opacity: 0;
+		right:15%;
+        bottom:30%;
+		}
+		
+	1.8% {
+		opacity: 0;
+		transform:scale(1);
+		}
+	
+
+	2% {
+		opacity: 1;
+		transform:scale(2);
+	    }
+
+	3% {
+		opacity: 1;
+		transform: scale(1);
+	    }
+     
+     50% {
+		 right:10%;
+         bottom:20%;
+	     }
+
+	100% {
+		 right:15%;
+         bottom:30%;
+	     }
+}            
+
+/*webkit keyframes*/    
+  @-webkit-keyframes star11{
+    
+    0% {
+		opacity: 0;
+		right:15%;
+        bottom:30%;
+		}
+		
+    1.8% {
+		opacity: 0;
+		-webkit-transform: scale(1);
+		}
+
+	2% {
+	    opacity: 1;
+		-webkit-transform: scale(2);
+	    }
+	    
+	3% {
+	    opacity: 1;
+		-webkit-transform: scale(1);
+	    }    
+
+
+	50% {
+		 right:10%;
+         bottom:20%;
+	     }
+	     
+   100% {
+         right:15%;
+         bottom:30%;
+	     }
+}
+
+    
+/*firefox keyframes*/    
+  @-moz-keyframes star11{
+    
+    0% {
+		opacity: 0;
+		right:15%;
+        bottom:30%;
+		}
+		
+    1.8% {
+		opacity: 0;
+		-moz-transform: scale(1);
+		}
+
+	2% {
+	    opacity: 1;
+		-moz-transform: scale(2);
+	    }
+	    
+	3% {
+	    opacity: 1;
+		-moz-transform: scale(1);
+	    }    
+
+
+	50% {
+		 right:10%;
+         bottom:20%;
+	     }
+	     
+   100% {
+         right:15%;
+         bottom:30%;
+	     }
+}
+
+     
+/*microsoft keyframes*/    
+  @-ms-keyframes star11{
+    
+    0% {
+		opacity: 0;
+		right:15%;
+        bottom:30%;
+		}
+		
+    1.8% {
+		opacity: 0;
+		-ms-transform: scale(1);
+		}
+
+	2% {
+	    opacity: 1;
+		-ms-transform: scale(2);
+	    }
+	    
+	3% {
+	    opacity: 1;
+		-ms-transform: scale(1);
+	    }    
+
+
+	50% {
+		 right:10%;
+         bottom:20%;
+	     }
+	     
+   100% {
+         right:15%;
+         bottom:30%;
+	     }
+}
+
+
+
+ /*---------------------------------
+STAR 12
+------------------------------------ */  
+.star12{
+   background:url("../img/animation/smallstar.png")no-repeat center center;
+   width:10px;
+   height:10px;
+   border-radius:10px;
+   position: absolute; 
+   /*webkit animation*/
+   -webkit-animation-name: star12;
+   -webkit-animation-duration: 100s;
+   -webkit-animation-timing-function: linear;
+   -webkit-animation-iteration-count: infinite;	
+   -webkit-animation-direction: normal;
+   -webkit-animation-delay: 0;
+   -webkit-animation-play-state: running;
+   -webkit-animation-fill-mode: forwards;
+    /*firefox animation*/
+   -moz-animation-name: star12;
+   -moz-animation-duration: 100s;
+   -moz-animation-timing-function: linear;
+   -moz-animation-iteration-count: infinite;	
+   -moz-animation-direction: normal;
+   -moz-animation-delay: 0;
+   -moz-animation-play-state: running;
+   -moz-animation-fill-mode: forwards;
+   /*microsoft animation*/
+   -ms-animation-name: star12;
+   -ms-animation-duration: 100s;
+   -ms-animation-timing-function: linear;
+   -ms-animation-iteration-count:infinite ;	
+   -ms-animation-direction: normal;
+   -ms-animation-delay: 0;
+   -ms-animation-play-state: running;
+   -ms-animation-fill-mode: forwards;
+   /*animation*/
+   animation-name: star12;
+   animation-duration: 100s;
+   animation-timing-function: linear;
+   animation-iteration-count: infinite;	
+   animation-direction: normal;
+   animation-delay: 0;
+   animation-play-state: running;
+   animation-fill-mode: forwards;
+   }
+  
+/*keyframes*/    
+  @keyframes star12{
+    
+    0% {
+		opacity: 0;
+		right:25%;
+        bottom:20%;
+		}
+		
+	1% {
+		opacity: 0;
+		transform:scale(1);
+		}
+	
+
+	1.5% {
+		opacity: 1;
+		transform:scale(2);
+	    }
+
+	2% {
+		opacity: 1;
+		transform: scale(1);
+	    }
+     
+     50% {
+		 right:15%;
+         bottom:25%;
+	     }
+
+	100% {
+		 right:25%;
+         bottom:20%;
+	     }
+}            
+
+/*webkit keyframes*/    
+  @-webkit-keyframes star12{
+    
+    0% {
+		opacity: 0;
+		right:25%;
+        bottom:20%;
+		}
+		
+    1% {
+		opacity: 0;
+		-webkit-transform: scale(1);
+		}
+
+	1.5% {
+	    opacity: 1;
+		-webkit-transform: scale(2);
+	    }
+	    
+	2% {
+	    opacity: 1;
+		-webkit-transform: scale(1);
+	    }    
+
+
+	50% {
+		 right:15%;
+         bottom:25%;
+	     }
+	     
+   100% {
+         right:25%;
+         bottom:20%;
+	     }
+}
+
+    
+/*firefox keyframes*/    
+  @-moz-keyframes star12{
+    
+    0% {
+		opacity: 0;
+		right:25%;
+        bottom:20%;
+		}
+		
+    1% {
+		opacity: 0;
+		-moz-transform: scale(1);
+		}
+
+	1.5% {
+	    opacity: 1;
+		-moz-transform: scale(2);
+	    }
+	    
+	2% {
+	    opacity: 1;
+		-moz-transform: scale(1);
+	    }    
+
+
+	50% {
+		 right:15%;
+         bottom:25%;
+	     }
+	     
+   100% {
+         right:25%;
+         bottom:20%;
+	     }
+}
+
+     
+/*microsoft keyframes*/    
+  @-ms-keyframes star12{
+    
+    0% {
+		opacity: 0;
+		right:25%;
+        bottom:20%;
+		}
+		
+    1% {
+		opacity: 0;
+		-ms-transform: scale(1);
+		}
+
+	1.5% {
+	    opacity: 1;
+		-ms-transform: scale(2);
+	    }
+	    
+	2% {
+	    opacity: 1;
+		-ms-transform: scale(1);
+	    }    
+
+
+	50% {
+		 right:15%;
+         bottom:25%;
+	     }
+	     
+   100% {
+         right:25%;
+         bottom:20%;
+	     }
+}
+   
+   
+   
+   
