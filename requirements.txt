@@ -1,5 +1,5 @@
 cffi==1.6.0
-cryptography==1.3.2
+cryptography==3.2
 datetimeutc==0.1.1
 elasticsearch==2.3.0
 enum34==1.1.5
